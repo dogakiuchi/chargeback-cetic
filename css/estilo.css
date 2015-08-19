@@ -1,0 +1,102 @@
+/*página principal*/
+body{
+	font: 12px Tahoma, Geneva, sans-serif;
+	color:#000000; 
+}    
+	
+select{
+	background-color:#E6FFE6; 
+	font: 14px Tahoma, Geneva, sans-serif;
+	color:#000000; 
+	border:1px solid #000000;
+}
+
+p{
+	text-align:justify;	
+}
+
+table{
+	text-align:justify;
+	border-color:#CCCCCC;
+	border-collapse:collapse;
+}
+
+#centro{
+	width: 1200px;
+	margin: 0 auto;
+}
+
+#centro_editar{
+	width: 830px;
+	margin: 0 auto;
+}
+
+
+
+
+input{
+    
+	border-width:1;
+	color:#000000;
+	font-size: 8pt;
+	font: 12px Tahoma, Geneva, sans-serif;
+	padding:2px 2px 2px 2px;
+	color:#006633;
+	text-decoration:none;
+	text-transform:none;
+/*	border-top:1px solid #FFFFFF;
+	border-left:1px solid #FFFFFF;
+	border-bottom:1px solid #00CC33;
+	border-right:1px solid #00CC33;
+	cursor: pointer;*/
+	}
+
+a 
+	{
+	color:#36608B;
+	text-decoration:none;
+	}
+
+a:link 
+	{
+	color:#36608B;
+	text-decoration:none;
+	}
+
+a:hover 
+	{
+	color:#6666FF;
+	text-decoration:underline;
+	}
+
+.over:hover{
+	background:#FAF8D8;
+}
+
+#mouse:hover{
+	background:#900;
+}
+
+.chosen-container {
+position: relative;
+display: inline-block;
+vertical-align: middle;
+font-size: 13px;
+zoom: 1;
+-webkit-user-select: none;
+-moz-user-select: none;
+user-select: none;
+
+
+}
+
+/* #############fim secundarias*####################/ */
+
+#form_cadastro{
+	margin: 0 auto;
+	width: 800px;	
+}
+
+.title_cadastro_portais{
+	text-align: center;	
+}
