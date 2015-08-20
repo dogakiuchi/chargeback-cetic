@@ -75,6 +75,44 @@ if (isset($_POST['acao']) && $_POST['acao'] == 'editar_orgao'){
 		));
 		
 		echo json_encode($var);
-		exit;	
+		exit;
+}
+/* ########################### EDITAR UNIDADE ##########################################*/
+if (isset($_POST['acao']) && $_POST['acao'] == 'editar_unidade'){
+    $NO_UNIDADE = $_POST['NO_UNIDADE'];
+	$NO_SIGLA = $_POST['NO_SIGLA'];
+    $NO_ENDERECO = $_POST['NO_ENDERECO'];
+    $NU_CEP = $_POST['NU_CEP'];
+	$STATUS   = $_POST['STATUS'];
+	$ID_ORGAO = $_POST['ID_ORGAO'];
+    $ID_CIDADE = $_POST['ID_CIDADE'];
+    $ID_UNIDADE = $_POST['ID_UNIDADE'];
+	
+
+	$sql = "UPDATE `unidade`
+            SET
+				`no_unidade` = '".$NO_UNIDADE."',
+				`no_sigla` = '".$NO_SIGLA."',
+                `no_endereco` = '".$NO_ENDERECO."',
+                `nu_cep` = '".$NU_CEP."',
+				`status` = '".$STATUS."',
+                `orgao_id` = '".$ID_ORGAO."',
+                `cidade_id` = '".$ID_CIDADE."',
+				`dt_atualizacao` = now()
+			WHERE `id` = ".$ID_UNIDADE."";
+			
+    /*$var = Array(array(
+			'resultado' => $sql
+		));
+    echo json_encode($var);
+    exit;*/
+    
+	f_escrita($db, $sql);
+		
+	$var = Array(array(
+		'resultado' => 0
+	));
+    echo json_encode($var);
+    exit;	
 }
 ?>

@@ -10,19 +10,27 @@
 	<?php
 		require("banco/conecta.php");
 		$id = $_GET['id'];
-		$sql = "SELECT * FROM orgao WHERE id=".$id;
+		$sql = "SELECT * FROM unidade WHERE id=".$id;
 		$res = f_leitura($db, $sql);
 		if ($res == true) {
 	?>
 	    <div class="navbar" style="margin-top:20px;">
     	<div class="navbar-inner">
-    		<a class="brand" href="#">Detalhamento Órgão</a>
+    		<a class="brand" href="#">Detalhamento Unidade</a>
     	</div>
 		</div>
     		<table class="table table-striped table-bordered">
             	<tbody>
-                		<tr>
+                        <tr>
                         	<td style="font-weight:bold">Órgão</td>
+                            <?php
+                                $sql1 = "SELECT no_orgao FROM orgao WHERE id=".$res[0][8];;
+		                        $res1 = f_leitura($db, $sql1);
+                            ?>
+                            <td><?php echo $res1[0][0]; ?></td>
+                        </tr>
+                		<tr>
+                        	<td style="font-weight:bold">Unidade</td>
                             <td><?php echo $res[0][1]; ?></td>
                         </tr>
                         <tr>
@@ -30,20 +38,32 @@
                             <td><?php echo $res[0][2]; ?></td>
                         </tr>
                         <tr>
-                        	<td style="font-weight:bold">Tipo</td>
-                            <td><?php if ($res[0][3]==0){echo "Administração Direta";}else{echo "Administração Indireta";}?></td>
+                        	<td style="font-weight:bold">Endereço</td>
+                            <td><?php echo $res[0][3];?></td>
                         </tr>
                          <tr>
+                        	<td style="font-weight:bold">CEP</td>
+                            <td><?php echo $res[0][4];?></td>
+                        </tr>
+                        <tr>
+                        	<td style="font-weight:bold">Cidade</td>
+                            <?php
+                                $sql2 = "SELECT no_cidade FROM cidade WHERE id=".$res[0][9];;
+		                        $res2 = f_leitura($db, $sql2);
+                            ?>
+                            <td><?php echo $res2[0][0]; ?></td>
+                        </tr>
+                        <tr>
                         	<td style="font-weight:bold">Status</td>
-                            <td><?php if ($res[0][4]==1){echo "Ativo";}else{echo "Inativo";} ?></td>
+                            <td><?php if ($res[0][5]==1){echo "Ativo";}else{echo "Inativo";} ?></td>
                         </tr>
                         <tr>
                         	<td style="font-weight:bold">Data do cadastro</td>
-                            <td><?php echo $res[0][5]; ?></td>
+                            <td><?php echo $res[0][6]; ?></td>
                         </tr>
                         <tr>
                         	<td style="font-weight:bold">Data da atualização</td>
-                            <td><?php echo $res[0][6]; ?></td>
+                            <td><?php echo $res[0][7]; ?></td>
                         </tr>
                 </tbody>
             </table>

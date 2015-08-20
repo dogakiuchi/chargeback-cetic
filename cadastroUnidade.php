@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -30,13 +30,13 @@ $no_orgao = $_GET['org'];
 				<div id="div_orgao" class="control-group">
                         <label style="font-weight:bold;" class="control-label">Órgão</label>
                         <div class="controls">
-						<input type="text" readonly="true" name="no_orgao" id="no_orgao"  style="width:550px; maxlength="100" value="<?php echo $no_orgao; ?>" />
+						<input type="text" readonly="true" name="no_orgao" id="no_orgao"  style="width:550px;" maxlength="100" value="<?php echo $no_orgao; ?>" />
 						</div>
                 </div>
             	<div id="div_nome" class="control-group">
                         <label style="font-weight:bold;" class="control-label">Nome da Unidade</label>
                         <div class="controls">
-						<input type="text" name="no_unidade" id="no_unidade"  style="width:550px; maxlength="100" required />
+						<input type="text" name="no_unidade" id="no_unidade"  style="width:550px;" maxlength="100" required />
 						</div>
                 </div>
                 <div id="div_sigla" class="control-group">

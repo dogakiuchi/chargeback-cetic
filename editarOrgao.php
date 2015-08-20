@@ -31,7 +31,7 @@
             	<div id="div_nome" class="control-group">
                     <label style="font-weight:bold;" class="control-label">Nome</label>
 					<div class="controls">
-                    <input type="text" name="no_orgao" id="no_orgao" style="width:550px; maxlength="100" value="<?php echo $res[0][1]; ?>" required />
+                    <input type="text" name="no_orgao" id="no_orgao" style="width:550px;" maxlength="100" value="<?php echo $res[0][1]; ?>" required />
                     </div>
                 </div>
                 <div id="div_sigla" class="control-group">

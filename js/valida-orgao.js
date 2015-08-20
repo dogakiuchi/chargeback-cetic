@@ -1,5 +1,5 @@
-$(function(){
-		$("#salvar_orgao").click(function(){
+$(function () {
+		$("#salvar_orgao").click(function() {
 			if ($("#no_orgao").val()=="" || $("#no_orgao").val()==null){
 				$("#div_nome").addClass("error");
 				$("#no_orgao").addClass("inputError");
@@ -12,16 +12,16 @@ $(function(){
 					var acao = 'cadastrar_orgao';
 					var tipo = "";
 					var status = "";
-					if (document.getElementById("tp_direta").checked == true)
+					if (document.getElementById("tp_direta").checked == true) {
 						tipo = 0;
-					else 
+                    } else {
 						tipo = 1;
-						
-					if (document.getElementById("ativo").checked == true)
+                    }
+					if (document.getElementById("ativo").checked == true) {
 						status = 1;
-					else 
+                    } else {
 						status = 0;
-						
+                    }
 					$.ajax({
 						url: "ajax/ajax_cadastrar.php",
 						type: 'POST',

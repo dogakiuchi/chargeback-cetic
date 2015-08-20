@@ -119,7 +119,9 @@ body {
             <td><?php echo $unidade[1]; ?></td>
             <td style="text-align:center;"><a class="iframe" href="editarUnidade.php?id=<?php echo $unidade[2]; ?>" style="text-decoration:none;"><i class="icon-edit"></i></a></td>
             <td style="text-align:center;"><a class="iframe" href="detalhaUnidade.php?id=<?php echo $unidade[2]; ?>" style="text-decoration:none;"><i class="icon-eye-open"></i></a></td>
-            <td style="text-align:center;"><a class="" href="excluir.php?id=<?php echo $unidade[2]; ?>" style="text-decoration:none;"><i class="icon-remove"></i></a></td>
+            <td style="text-align:center;">
+				<a href="ajax/ajax_excluir.php?id=<?php echo $unidade[2];?>&obj=2&idr=<?php echo $id_orgao;?>" onClick="if(confirm('Confirma a exclusão?')){this.href;return true;}"><i class="icon-remove"></i></a>
+			</td>
         </tr>
     
   <?php 
