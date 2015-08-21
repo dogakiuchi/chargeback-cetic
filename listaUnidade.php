@@ -14,60 +14,40 @@
 <script type="text/javascript" charset="utf-8" src="plug-in/dataTable-1.10.0/media/js/dataTables.tableTools.js"></script>
 <script type="text/javascript" charset="utf-8" src="js/jquery.colorbox-min.js"></script>
 <script type="text/javascript" charset="utf-8" src="js/colorbox.js"></script>
+<style type="text/css">
+body {
+	margin:0;
+	padding:0;
+	text-align:center; /* hack para o IE */	
+	}
+#tudo {
+	width: 1024px;
+	margin:0 auto;			
+	text-align:left; /* "remédio" para o hack do IE */	
+	}
+</style>
 </head>
 <body >
 <div id="tudo">
     <?php
         require("banco/conecta.php");
-		$id_orgao = $_GET['id'];
-		$sql = "SELECT * FROM orgao WHERE id=".$id_orgao;
-		$res = f_leitura($db, $sql);
-		if ($res == true) {
-	?>
-	    <div class="navbar" style="margin-top:20px;">
-    	   <div class="navbar-inner">
-            <a class="brand" href="#">Detalhamento Órgão</a>
-    	   </div>
-		</div>
-    	<table class="table table-striped table-bordered" >
-            <tbody>
-                <tr>
-                    <td style="font-weight:bold">Órgão</td>
-                    <td><?php echo $res[0][1]; $org = $res[0][1];?></td>
-                </tr>
-                <tr>
-                	<td style="font-weight:bold">Sigla</td>
-                    <td><?php echo $res[0][2]; ?></td>
-                </tr>
-                <tr>
-                	<td style="font-weight:bold">Tipo</td>
-                    <td><?php if ($res[0][3]==0){echo "Administração Direta";}else{echo "Administração Indireta";}?></td>
-                </tr>
-                 <tr>
-                	<td style="font-weight:bold">Status</td>
-                    <td><?php if ($res[0][4]==1){echo "Ativo";}else{echo "Inativo";} ?></td>
-                </tr>
-                <tr>
-                	<td style="font-weight:bold">Data do cadastro</td>
-                    <td><?php echo $res[0][5]; ?></td>
-                </tr>
-                <tr>
-                	<td style="font-weight:bold">Data da atualização</td>
-                    <td><?php echo $res[0][6]; ?></td>
-                </tr>
-            </tbody>
-        </table>
-    <?php 
-        } else { 
+		$id_orgao = $_GET['idorgao'];
+        $sql1 = "SELECT no_orgao FROM orgao WHERE id=".$id_orgao;
+        $orgao = f_leitura_campo($db, $sql1);
     ?>
-        <center> <h3>Erro na seleção</h3> </center>
-    <?php 
-        }
-    ?>
-<!-- ########################################  UNIDADES #########################################-->
+    <br/>
+    <table class="table table-striped table-bordered" >
+        <tbody>
+            <tr>
+                <td style="font-weight:bold">Órgão</td>
+                <td><?php echo $orgao; ?></td>
+            </tr>
+        </tbody>
+    </table>
     <div class="navbar" style="margin-top:20px;">
         <div class="navbar-inner">
             <a class="brand" href="#">Unidades</a>
+            <a class="iframe" style="margin-left:700px" href="cadastroUnidade.php?id=<?php echo $id_orgao; ?>&org=<?php echo $orgao?>" style="text-decoration:none;"><i class="btn btn-success">Cadastro de Unidade</i></a>
     	</div>
     </div>
 	<?php
@@ -83,19 +63,33 @@
 	?>
         <table id="tabela_orgao"  class="table table-striped table-bordered" width="100%">
             <thead>
-                <th>Unidade</th>
+                <th>Nome</th>
                 <th>Sigla</th>
+                <th>Responsáveis</th>
+                <th>Editar</th>
+                <th>Detalhar</th>
+                <th>Excluir</th>
             </thead>
             <tbody>
                 <?php 
                     $count=0;
                     foreach($res as $unidade) {
                 ?>
-                <tr >
+                <tr class="over" <?php if ($count==1):?> id="zebra"<?php endif;?>>
                     <td><?php echo $unidade[0]; ?></td>
                     <td><?php echo $unidade[1]; ?></td>
+                    <td style="text-align:center;"><a href="listaResponsavel.php?idunidade=<?php echo $unidade[2]; ?>&idorgao=<?php echo $id_orgao;?>" style="text-decoration:none;"><i class="icon-user"></i></a></td>
+                    <td style="text-align:center;"><a class="iframe" href="editarUnidade.php?id=<?php echo $unidade[2]; ?>" style="text-decoration:none;"><i class="icon-edit"></i></a></td>
+                    <td style="text-align:center;"><a class="iframe" href="detalhaUnidade.php?id=<?php echo $unidade[2]; ?>" style="text-decoration:none;"><i class="icon-eye-open"></i></a></td>
+                    <td style="text-align:center;"><a href="ajax/ajax_excluir.php?id=<?php echo $unidade[2];?>&obj=2&idr=<?php echo $id_orgao;?>" onClick="if(confirm('Confirma a exclusão?') == true){this.href;return true;}else{return false;}"><i class="icon-remove"></i></a></td>
                 </tr>
                 <?php 
+                        if ($count==1){
+                            $count=0;
+                        }
+                        else {
+                            $count++;
+                        }
   
                     }	//fecha foreach 
                 ?>
@@ -104,6 +98,11 @@
         }// fecha else if
     ?>
     </table>
+<div class="navbar" style="margin-top:20px;">
+    <div class="navbar-inner" style="text-align:center;">
+        <a href="listaOrgao.php"><input type="button" value="VOLTAR" id="voltar" class="btn" onsubmit="return false;" /></a>
+    </div>
+</div>
 </div>
 </body>
 </html>

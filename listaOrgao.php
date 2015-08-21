@@ -63,9 +63,9 @@
         <tr class="over" <?php if ($count==1):?> id="zebra"<?php endif;?>>
             <td><?php echo $site[0]; ?></td>
             <td><?php echo $site[1]; ?></td>
-            <td style="text-align:center;"><a href="listaUnidade.php?id=<?php echo $site[2]; ?>" style="text-decoration:none;"><i class="icon-folder-open"></i></a></td>
+            <td style="text-align:center;"><a href="listaUnidade.php?idorgao=<?php echo $site[2]; ?>" style="text-decoration:none;"><i class="icon-folder-open"></i></a></td>
             <td style="text-align:center;"><a class="iframe" href="editarOrgao.php?id=<?php echo $site[2]; ?>" style="text-decoration:none;"><i class="icon-edit"></i></a></td>
-            <td style="text-align:center;"><a href="detalhaOrgao.php?id=<?php echo $site[2]; ?>" style="text-decoration:none;"><i class="icon-eye-open"></i></a></td>
+            <td style="text-align:center;"><a class="iframe" href="detalhaOrgao.php?id=<?php echo $site[2]; ?>" style="text-decoration:none;"><i class="icon-eye-open"></i></a></td>
             <td style="text-align:center;">
 				<a href="ajax/ajax_excluir.php?id=<?php echo $site[2];?>&obj=1" onClick="if(confirm('Confirma a exclusão?') == true){this.href;return true;}else{return false;}"><i class="icon-remove"></i></a>
 			</td>
