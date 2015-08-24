@@ -81,7 +81,7 @@ body {
                     <td style="text-align:center;"><a href="listaResponsavel.php?idunidade=<?php echo $unidade[2]; ?>&idorgao=<?php echo $id_orgao;?>" style="text-decoration:none;"><i class="icon-user"></i></a></td>
                     <td style="text-align:center;"><a class="iframe" href="editarUnidade.php?id=<?php echo $unidade[2]; ?>" style="text-decoration:none;"><i class="icon-edit"></i></a></td>
                     <td style="text-align:center;"><a class="iframe" href="detalhaUnidade.php?id=<?php echo $unidade[2]; ?>" style="text-decoration:none;"><i class="icon-eye-open"></i></a></td>
-                    <td style="text-align:center;"><a href="ajax/ajax_excluir.php?id=<?php echo $unidade[2];?>&obj=2&idr=<?php echo $id_orgao;?>" onClick="if(confirm('Confirma a exclusão?') == true){this.href;return true;}else{return false;}"><i class="icon-remove"></i></a></td>
+                    <td style="text-align:center;"><a href="ajax/ajax_excluir.php?id=<?php echo $unidade[2];?>&obj=2&idorgao=<?php echo $id_orgao;?>" onClick="if(confirm('Confirma a exclusão?') == true){this.href;return true;}else{return false;}"><i class="icon-remove"></i></a></td>
                 </tr>
                 <?php 
                         if ($count==1){

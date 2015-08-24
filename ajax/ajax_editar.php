@@ -115,4 +115,41 @@ if (isset($_POST['acao']) && $_POST['acao'] == 'editar_unidade'){
     echo json_encode($var);
     exit;	
 }
+/* ########################### EDITAR RESPONSÁVEL ##########################################*/
+if (isset($_POST['acao']) && $_POST['acao'] == 'editar_responsavel'){
+    $NO_RESPONSAVEL = $_POST['NO_RESPONSAVEL'];
+	$NU_TELEFONE = $_POST['NU_TELEFONE'];
+    $NO_EMAIL = $_POST['NO_EMAIL'];
+	$STATUS   = $_POST['STATUS'];
+	$ID_RESPONSAVEL = $_POST['ID_RESPONSAVEL'];
+    $ID_ORGAO = $_POST['ID_ORGAO'];
+    $ID_UNIDADE = $_POST['ID_UNIDADE'];
+	
+
+	$sql = "UPDATE `responsavel`
+            SET
+				`no_responsavel` = '".$NO_RESPONSAVEL."',
+				`nu_telefone` = '".$NU_TELEFONE."',
+                `no_email` = '".$NO_EMAIL."',
+				`status` = '".$STATUS."',
+                `orgao_id` = '".$ID_ORGAO."',
+                `unidade_id` = '".$ID_UNIDADE."',
+				`dt_atualizacao` = now()
+			WHERE `id` = ".$ID_RESPONSAVEL."";
+			
+    /*$var = Array(array(
+			'resultado' => $sql
+		));
+    echo json_encode($var);
+    exit;*/
+    
+	f_escrita($db, $sql);
+		
+	$var = Array(array(
+		'resultado' => 0
+	));
+    echo json_encode($var);
+    exit;	
+}
+
 ?>

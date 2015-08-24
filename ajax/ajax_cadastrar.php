@@ -166,4 +166,42 @@ if (isset($_POST['acao']) && $_POST['acao'] == 'cadastrar_unidade'){
 	echo json_encode($var);
 	exit;	
 }
+/* ########################### CADASTRAR RESPONSÁVEL ##########################################*/
+if (isset($_POST['acao']) && $_POST['acao'] == 'cadastrar_responsavel'){
+	$NO_RESPONSAVEL = $_POST['NO_RESPONSAVEL'];
+	$NU_TELEFONE   = $_POST['NU_TELEFONE'];
+	$NO_EMAIL = $_POST['NO_EMAIL'];
+	$STATUS     = $_POST['STATUS'];
+	$ID_ORGAO   = $_POST['ID_ORGAO'];
+    $ID_UNIDADE = $_POST['ID_UNIDADE'];
+
+		
+	$sql = "INSERT INTO `responsavel`
+					(`no_responsavel`,
+					`nu_telefone`,
+					`no_email`,
+					`status`,
+					`orgao_id`,
+                    `unidade_id`,
+					`dt_cadastro`)
+				VALUES
+					('".$NO_RESPONSAVEL."',
+					 '".$NU_TELEFONE."',
+					 '".$NO_EMAIL."',
+					 '".$STATUS."',
+					 '".$ID_ORGAO."',
+                     '".$ID_UNIDADE."',
+					now());";
+					
+	/*$var = Array(array('resultado' => $sql));
+	echo json_encode($var);
+	exit;*/
+	
+	f_escrita($db, $sql);
+		
+	$var = Array(array('resultado' => 0));
+	echo json_encode($var);
+	exit;	
+}
+
 ?>

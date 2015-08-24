@@ -105,7 +105,7 @@
                 <div class="control-group">
 					<div class="controls">
                     <input type="submit" value="Salvar" name="salvar_unidade" id="salvar_unidade" class="btn btn-primary" />
-                    <a style="margin-left: 10px;" href=""><input type="button" value="VOLTAR" id="voltar" class="btn" onsubmit="return false;" /></a>
+                    <input type="button" value="VOLTAR" id="voltar" class="btn" onClick="parent.$.fn.colorbox.close();" />
 					</div>
 				</div>
             </div>

@@ -56,11 +56,11 @@ body {
     <div class="navbar" style="margin-top:20px;">
         <div class="navbar-inner">
             <a class="brand" href="#">Responsáveis</a>
-            <a class="iframe" style="margin-left:600px" href="cadastroResponsavel.php?id=<?php echo $id_unidade; ?>&org<?php echo $id_orgao;?>" style="text-decoration:none;"><i class="btn btn-success">Cadastro de Responsável</i></a>
+            <a class="iframe" style="margin-left:600px" href="cadastroResponsavel.php?idunidade=<?php echo $id_unidade; ?>&idorgao=<?php echo $id_orgao;?>" style="text-decoration:none;"><i class="btn btn-success">Cadastro de Responsável</i></a>
     	</div>
     </div>
 	<?php
-        $sql = "SELECT no_responsavel, nu_telefone, no_email
+        $sql = "SELECT no_responsavel, nu_telefone, no_email, id
                 FROM responsavel
                 WHERE orgao_id = ".$id_orgao." AND unidade_id = ".$id_unidade."
                 ORDER BY no_responsavel";
@@ -82,15 +82,15 @@ body {
             <tbody>
                 <?php 
                     $count=0;
-                    foreach($res as $unidade) {
+                    foreach($res as $resp) {
                 ?>
                 <tr class="over" <?php if ($count==1):?> id="zebra"<?php endif;?>>
-                    <td><?php echo $unidade[0]; ?></td>
-                    <td><?php echo $unidade[1]; ?></td>
-                    <td style="text-align:center;"><a href="listaResponsavel.php?id=<?php echo $unidade[2]; ?>" style="text-decoration:none;"><i class="icon-user"></i></a></td>
-                    <td style="text-align:center;"><a class="iframe" href="editarUnidade.php?id=<?php echo $unidade[2]; ?>" style="text-decoration:none;"><i class="icon-edit"></i></a></td>
-                    <td style="text-align:center;"><a class="iframe" href="detalhaUnidade.php?id=<?php echo $unidade[2]; ?>" style="text-decoration:none;"><i class="icon-eye-open"></i></a></td>
-                    <td style="text-align:center;"><a href="ajax/ajax_excluir.php?id=<?php echo $unidade[2];?>&obj=2&idr=<?php echo $id_orgao;?>" onClick="if(confirm('Confirma a exclusão?') == true){this.href;return true;}else{return false;}"><i class="icon-remove"></i></a></td>
+                    <td><?php echo $resp[0]; ?></td>
+                    <td><?php echo $resp[1]; ?></td>
+                    <td><?php echo $resp[2]; ?></td>
+                    <td style="text-align:center;"><a class="iframe" href="editarResponsavel.php?id=<?php echo $resp[3]; ?>" style="text-decoration:none;"><i class="icon-edit"></i></a></td>
+                    <td style="text-align:center;"><a class="iframe" href="detalhaResponsavel.php?id=<?php echo $resp[3]; ?>" style="text-decoration:none;"><i class="icon-eye-open"></i></a></td>
+                    <td style="text-align:center;"><a href="ajax/ajax_excluir.php?id=<?php echo $resp[3];?>&obj=3&idorgao=<?php echo $id_orgao;?>&idunidade=<?php echo $id_unidade;?>" onClick="if(confirm('Confirma a exclusão?') == true){this.href;return true;}else{return false;}"><i class="icon-remove"></i></a></td>
                 </tr>
                 <?php 
                         if ($count==1){

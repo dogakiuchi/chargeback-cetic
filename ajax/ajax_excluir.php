@@ -1,18 +1,28 @@
 <?php
 	require ("../banco/conecta.php");
-	$ID  = $_GET['id'];
-	$OBJ = $_GET['obj'];
-    $IDR = $_GET['idr'];
+	$ID  = $_GET['id'];  //id que será deletado
+	$OBJ = $_GET['obj']; //identifica qual objeto a ser deletado
+    $ID_ORGAO = $_GET['idorgao'];
+    $ID_UNIDADE = $_GET['idunidade'];
 	
-	if ($OBJ==1){
+	/* Deleta Órgão */
+    if ($OBJ==1){
 	$sql = "DELETE FROM orgao WHERE id = ".$ID;
 	f_escrita($db,$sql);
 	header("Location: ../listaOrgao.php");
 	}
 
+    /* Deleta Unidade */
 	if ($OBJ==2){
 	$sql = "DELETE FROM unidade WHERE id = ".$ID;
 	f_escrita($db,$sql);
-	header("Location: ../detalhaOrgao.php?id=$IDR");
+	header("Location: ../listaUnidade.php?idorgao=$ID_ORGAO");
+	}
+
+    /* Deleta Responsável */
+	if ($OBJ==3){
+	$sql = "DELETE FROM responsavel WHERE id = ".$ID;
+	f_escrita($db,$sql);
+	header("Location: ../listaResponsavel.php?idorgao=".$ID_ORGAO."&idunidade=".$ID_UNIDADE);
 	}
 ?>
