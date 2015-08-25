@@ -25,4 +25,11 @@
 	f_escrita($db,$sql);
 	header("Location: ../listaResponsavel.php?idorgao=".$ID_ORGAO."&idunidade=".$ID_UNIDADE);
 	}
+
+    /* Deleta Item de Configuração */
+	if ($OBJ==4){
+	$sql = "DELETE FROM itemdeconfiguracao WHERE id = ".$ID;
+	f_escrita($db,$sql);
+	header("Location: ../listaItemConfiguracao.php");
+	}
 ?>

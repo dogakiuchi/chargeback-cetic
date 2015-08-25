@@ -206,7 +206,8 @@ if (isset($_POST['acao']) && $_POST['acao'] == 'cadastrar_responsavel'){
 
 /* ########################### CADASTRAR ITEM DE CONFIGURAÇÃO ##########################################*/
 if (isset($_POST['acao']) && $_POST['acao'] == 'cadastrar_itemdeconfiguracao'){
-	$NO_ITEM      = $_POST['NO_ITEM'];
+	$NO_ITEM         = $_POST['NO_ITEM'];
+    $DS_CONFIGURACAO = $_POST['DS_CONFIGURACAO'];
 	$ID_CATEGORIA = $_POST['ID_CATEGORIA'];
 	$DS_DESCRICAO = $_POST['DS_DESCRICAO'];
 	$STATUS       = $_POST['STATUS'];
@@ -215,14 +216,18 @@ if (isset($_POST['acao']) && $_POST['acao'] == 'cadastrar_itemdeconfiguracao'){
 	$sql = "INSERT INTO `itemdeconfiguracao`
 					(`no_item`,
 					`ds_descricao`,
+                    `ds_configuracao`,
 					`nu_custo_mensal`,
-					`categoria_ic_id`,
+					`categoriaitem_id`,
+                    `status`,
 					`dt_cadastro`)
 				VALUES
 					('".$NO_ITEM."',
 					 '".$DS_DESCRICAO."',
+                     '".$DS_CONFIGURACAO."',
 					 '".$NU_CUSTO."',
 					 '".$ID_CATEGORIA."',
+                     '".$STATUS."',
 					now());";
 					
 	/*$var = Array(array('resultado' => $sql));

@@ -14,21 +14,9 @@
 <script type="text/javascript" charset="utf-8" src="plug-in/dataTable-1.10.0/media/js/dataTables.tableTools.js"></script>
 <script type="text/javascript" charset="utf-8" src="js/jquery.colorbox-min.js"></script>
 <script type="text/javascript" charset="utf-8" src="js/colorbox.js"></script>
-<style type="text/css">
-body {
-	margin:0;
-	padding:0;
-	text-align:center; /* hack para o IE */	
-	}
-#tudo {
-	width: 1024px;
-	margin:0 auto;			
-	text-align:left; /* "remédio" para o hack do IE */	
-	}
-</style>
 </head>
 <body >
-<div id="tudo">
+<div id="centro">
     <?php
         require("banco/conecta.php");
 	?>
@@ -36,7 +24,7 @@ body {
     <div class="navbar" style="margin-top:20px;">
         <div class="navbar-inner">
             <a class="brand" href="#">Itens de Configuração</a>
-            <a class="iframe" style="margin-left:600px" href="cadastroItemConfiguracao.php" style="text-decoration:none;"><i class="btn btn-success">Cadastro de IC</i></a>
+            <a class="iframe" style="margin-left:700px" href="cadastroItemConfiguracao.php" style="text-decoration:none;"><i class="btn btn-success">Cadastro de IC</i></a>
     	</div>
     </div>
 	<?php
@@ -59,6 +47,14 @@ body {
                 <th>Detalhar</th>
                 <th>Excluir</th>
             </thead>
+            <tfoot>
+                <th>Item</th>
+                <th>Categoria</th>
+                <th>Custo</th>
+                <th>Editar</th>
+                <th>Detalhar</th>
+                <th>Excluir</th>
+            </tfoot>
             <tbody>
                 <?php 
                     foreach($res as $item) {
@@ -73,7 +69,7 @@ body {
                     <td><?php echo $item[3]; ?></td>
                     <td style="text-align:center;"><a class="iframe" href="editarItemConfiguracao.php?id=<?php echo $item[0]; ?>" style="text-decoration:none;"><i class="icon-edit"></i></a></td>
                     <td style="text-align:center;"><a class="iframe" href="detalhaItemConfiguracao.php?id=<?php echo $item[0]; ?>" style="text-decoration:none;"><i class="icon-eye-open"></i></a></td>
-                    <td style="text-align:center;"><a href="ajax/ajax_excluir.php?id=<?php echo $item[0];?>" onClick="if(confirm('Confirma a exclusão?') == true){this.href;return true;}else{return false;}"><i class="icon-remove"></i></a></td>
+                    <td style="text-align:center;"><a href="ajax/ajax_excluir.php?id=<?php echo $item[0];?>&obj=4" onClick="if(confirm('Confirma a exclusão?') == true){this.href;return true;}else{return false;}"><i class="icon-remove"></i></a></td>
                 </tr>
                 <?php 
   

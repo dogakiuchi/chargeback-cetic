@@ -22,6 +22,7 @@ $(function () {
                 data: {
                     NO_ITEM: $("#no_item").val(),
 				    DS_DESCRICAO: $("#ds_descricao").val(),
+                    DS_CONFIGURACAO: $("#ds_configuracao").val(),
 				    NU_CUSTO: $("#nu_custo_mensal").val(),
 				    STATUS: status,
 				    ID_CATEGORIA: $("#no_categoria").val(),
@@ -37,13 +38,14 @@ $(function () {
                     }
 				    if (resultado === 0) {
 				        $().toastmessage("showSuccessToast", "Cadastro efetuado!");
+                        document.form.reset();
 				        $("input").not("#salvar_itemdeconfiguracao, #voltar").val("");
 				    }
 				}
             });
         } else {
             //alert("passou");
-            acao = "editar_responsavel";
+            acao = "editar_itemdeconfiguracao";
             if (document.getElementById("ativo").checked === true) {
                 status = 1;
             } else {
@@ -53,13 +55,13 @@ $(function () {
                 url: 'ajax/ajax_editar.php',
 				type: 'POST',
 				data: {
-				    NO_RESPONSAVEL: $("#no_responsavel").val(),
-				    NU_TELEFONE: $("#nu_telefone").val(),
-				    NO_EMAIL: $("#no_email").val(),
+                    ID_ITEM: $("#id_item").val(),
+				    NO_ITEM: $("#no_item").val(),
+				    DS_DESCRICAO: $("#ds_descricao").val(),
+                    DS_CONFIGURACAO: $("#ds_configuracao").val(),
+				    NU_CUSTO: $("#nu_custo_mensal").val(),
 				    STATUS: status,
-				    ID_RESPONSAVEL: $("#id_responsavel").val(),
-                    ID_ORGAO: $("#id_orgao").val(),
-                    ID_UNIDADE: $("#id_unidade").val(),
+				    ID_CATEGORIA: $("#no_categoria").val(),
 				    acao: acao
 				},
 				dataType: 'json',
@@ -71,8 +73,9 @@ $(function () {
 				        return false;
                     }*/
 				    if (resultado === 0) {
-                        $().toastmessage("showSuccessToast", "Responsável alterado!");
-                        $("input").not("#salvar_responsavel, #voltar").val("");
+                        $().toastmessage("showSuccessToast", "Item de configuração alterado!");
+                        document.form.reset();
+                        $("input").not("#salvar_itemdeconfiguracao, #voltar").val("");
                     }
 				}
             });

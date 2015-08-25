@@ -151,5 +151,42 @@ if (isset($_POST['acao']) && $_POST['acao'] == 'editar_responsavel'){
     echo json_encode($var);
     exit;	
 }
+/* ########################### EDITAR ITEM DE CONFIGURAÇÃO ##########################################*/
+if (isset($_POST['acao']) && $_POST['acao'] == 'editar_itemdeconfiguracao'){
+    $ID_ITEM         = $_POST['ID_ITEM'];
+    $NO_ITEM         = $_POST['NO_ITEM'];
+    $DS_CONFIGURACAO = $_POST['DS_CONFIGURACAO'];
+	$ID_CATEGORIA = $_POST['ID_CATEGORIA'];
+	$DS_DESCRICAO = $_POST['DS_DESCRICAO'];
+	$STATUS       = $_POST['STATUS'];
+	$NU_CUSTO     = $_POST['NU_CUSTO'];
+	
+
+	$sql = "UPDATE `itemdeconfiguracao`
+            SET
+				`no_item` = '".$NO_ITEM."',
+				`ds_descricao` = '".$DS_DESCRICAO."',
+                `categoriaitem_id` = '".$ID_CATEGORIA."',
+				`status` = '".$STATUS."',
+                `nu_custo_mensal` = '".$NU_CUSTO."',
+                `ds_configuracao` = '".$DS_CONFIGURACAO."',
+				`dt_atualizacao` = now()
+			WHERE `id` = ".$ID_ITEM."";
+			
+    /*$var = Array(array(
+			'resultado' => $sql
+		));
+    echo json_encode($var);
+    exit;*/
+    
+	f_escrita($db, $sql);
+		
+	$var = Array(array(
+		'resultado' => 0
+	));
+    echo json_encode($var);
+    exit;	
+}
+
 
 ?>

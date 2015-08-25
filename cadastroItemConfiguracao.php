@@ -54,6 +54,12 @@
                             </select>
 						</div>
 				</div>
+                <div id="div_configuracao" class="control-group">
+                        <label style="font-weight:bold;" class="control-label">Configuração</label>
+						<div class="controls">
+                        <input type="text" name="ds_configuracao" id="ds_configuracao" maxlength="100" style="width:550px;"/>
+						</div>
+                </div>
 				<div id="div_endereco" class="control-group">
                         <label style="font-weight:bold;" class="control-label">Custo Mensal</label>
 						<div class="controls">
