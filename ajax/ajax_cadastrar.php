@@ -204,4 +204,36 @@ if (isset($_POST['acao']) && $_POST['acao'] == 'cadastrar_responsavel'){
 	exit;	
 }
 
+/* ########################### CADASTRAR ITEM DE CONFIGURAÇÃO ##########################################*/
+if (isset($_POST['acao']) && $_POST['acao'] == 'cadastrar_itemdeconfiguracao'){
+	$NO_ITEM      = $_POST['NO_ITEM'];
+	$ID_CATEGORIA = $_POST['ID_CATEGORIA'];
+	$DS_DESCRICAO = $_POST['DS_DESCRICAO'];
+	$STATUS       = $_POST['STATUS'];
+	$NU_CUSTO     = $_POST['NU_CUSTO'];
+		
+	$sql = "INSERT INTO `itemdeconfiguracao`
+					(`no_item`,
+					`ds_descricao`,
+					`nu_custo_mensal`,
+					`categoria_ic_id`,
+					`dt_cadastro`)
+				VALUES
+					('".$NO_ITEM."',
+					 '".$DS_DESCRICAO."',
+					 '".$NU_CUSTO."',
+					 '".$ID_CATEGORIA."',
+					now());";
+					
+	/*$var = Array(array('resultado' => $sql));
+	echo json_encode($var);
+	exit;*/
+	
+	f_escrita($db, $sql);
+		
+	$var = Array(array('resultado' => 0));
+	echo json_encode($var);
+	exit;	
+}
+
 ?>

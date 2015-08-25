@@ -81,10 +81,9 @@ body {
             </thead>
             <tbody>
                 <?php 
-                    $count=0;
                     foreach($res as $resp) {
                 ?>
-                <tr class="over" <?php if ($count==1):?> id="zebra"<?php endif;?>>
+                <tr class="over">
                     <td><?php echo $resp[0]; ?></td>
                     <td><?php echo $resp[1]; ?></td>
                     <td><?php echo $resp[2]; ?></td>
@@ -93,13 +92,6 @@ body {
                     <td style="text-align:center;"><a href="ajax/ajax_excluir.php?id=<?php echo $resp[3];?>&obj=3&idorgao=<?php echo $id_orgao;?>&idunidade=<?php echo $id_unidade;?>" onClick="if(confirm('Confirma a exclusão?') == true){this.href;return true;}else{return false;}"><i class="icon-remove"></i></a></td>
                 </tr>
                 <?php 
-                        if ($count==1){
-                            $count=0;
-                        }
-                        else {
-                            $count++;
-                        }
-  
                     }	//fecha foreach 
                 ?>
             </tbody>
