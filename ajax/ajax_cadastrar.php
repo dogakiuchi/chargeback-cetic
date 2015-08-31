@@ -250,8 +250,8 @@ if (isset($_POST['acao']) && $_POST['acao'] == 'cadastrar_chargeback'){
     $ID_UNIDADE   = $_POST['ID_UNIDADE'];
 
     for ($x = 0; $x < sizeof($ID_ITEM); $x++) {
-        echo $ID_ITEM[$x]."<br>";
-        echo $QTD[$x]."<br>";
+        //echo $ID_ITEM[$x]."<br>";
+        //echo $QTD[$x]."<br>";
         $sql = "INSERT INTO `chargeback`
                                 (`nu_qtd`,
                                  `unidade_id`,
@@ -263,7 +263,7 @@ if (isset($_POST['acao']) && $_POST['acao'] == 'cadastrar_chargeback'){
                                  '$ID_ORGAO',
                                  '$ID_ITEM[$x]',
                                  '$ID_CATEGORIA')";
-        $result = mysql_query($sql) or die ("ERRO DE SQL: ".mysql_error());	
+        f_escrita($db, $sql);	
     }
 					
 	/*$var = Array(array('resultado' => $sql));
