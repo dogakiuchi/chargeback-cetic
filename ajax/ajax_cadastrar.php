@@ -241,4 +241,38 @@ if (isset($_POST['acao']) && $_POST['acao'] == 'cadastrar_itemdeconfiguracao'){
 	exit;	
 }
 
+/* ########################### CADASTRAR CHARGEBACK ##########################################*/
+if (isset($_POST['acao']) && $_POST['acao'] == 'cadastrar_chargeback'){
+	$ID_ITEM      = $_POST['ID_ITEM'];
+	$QTD          = $_POST['NU_QTD'];
+	$ID_CATEGORIA = $_POST['ID_CATEGORIA'];
+    $ID_ORGAO     = $_POST['ID_ORGAO'];
+    $ID_UNIDADE   = $_POST['ID_UNIDADE'];
+
+    for ($x = 0; $x < sizeof($ID_ITEM); $x++) {
+        echo $ID_ITEM[$x]."<br>";
+        echo $QTD[$x]."<br>";
+        $sql = "INSERT INTO `chargeback`
+                                (`nu_qtd`,
+                                 `unidade_id`,
+                                 `orgao_id`,
+                                 `itemdeconfiguracao_id`,
+                                 categoriaitem_id)
+			             VALUES ('$QTD[$x]',
+                                 '$ID_UNIDADE',
+                                 '$ID_ORGAO',
+                                 '$ID_ITEM[$x]',
+                                 '$ID_CATEGORIA')";
+        $result = mysql_query($sql) or die ("ERRO DE SQL: ".mysql_error());	
+    }
+					
+	/*$var = Array(array('resultado' => $sql));
+	echo json_encode($var);
+	exit;*/
+		
+	$var = Array(array('resultado' => 0));
+	echo json_encode($var);
+	exit;	
+}
+
 ?>

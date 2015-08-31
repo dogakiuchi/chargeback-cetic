@@ -3,7 +3,7 @@ require ("../banco/conecta.php");
 
 $id_orgao = mysql_real_escape_string( $_GET['no_orgao'] );
 
-$cidades = array();
+$unidades = array();
 
 $sql = "SELECT id, no_unidade
 		FROM unidade
