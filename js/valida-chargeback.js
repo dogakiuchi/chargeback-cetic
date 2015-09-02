@@ -34,6 +34,7 @@ $(function () {
 				    var resultado = data[0].resultado;
 				    //alert(resultado);
 				    if (resultado === 1) {
+                        alert("Item já cadastrado!");
 				        //$().toastmessage("showErrorToast", "Erro!");
 				        return false;
                     }

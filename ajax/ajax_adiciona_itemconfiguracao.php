@@ -44,7 +44,7 @@ while ($row = mysql_fetch_array($res)){
 }
 	
 
-$html = '<li><select class="materiais'.$QTD.'" name="materiais[]" style="width: 400px;"><option value="" selected>Escolha um item</option>'.$option.'</select><input type="text" class="qtd'.$QTD.' maskNum" name="quantidades[]" maxlength="4" style="width:50px;"> <a href="#" id ="b"><i class="icon-remove">X</i></a></li>';
+$html = '<li><select class="materiais'.$QTD.'" name="materiais[]" style="width: 400px;"><option value="" selected>Escolha um item</option>'.$option.'</select><input type="text" class="qtd'.$QTD.' maskNum" name="quantidades[]" maxlength="4" style="width:25px;"> <a href="#" id ="b"><i class="icon-remove"></i></a></li>';
 
 	
 $var = Array(array(

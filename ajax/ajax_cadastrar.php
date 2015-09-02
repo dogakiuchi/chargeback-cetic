@@ -250,9 +250,14 @@ if (isset($_POST['acao']) && $_POST['acao'] == 'cadastrar_chargeback'){
     $ID_UNIDADE   = $_POST['ID_UNIDADE'];
 
     for ($x = 0; $x < sizeof($ID_ITEM); $x++) {
-        //echo $ID_ITEM[$x]."<br>";
-        //echo $QTD[$x]."<br>";
-        $sql = "INSERT INTO `chargeback`
+        $verificaitem = "SELECT id FROM chargeback WHERE unidade_id = ".$ID_UNIDADE." AND itemdeconfiguracao_id = ".$ID_ITEM[$x];
+        $retorno = f_leitura($db, $verificaitem);
+        if($retorno){
+            $var = Array(array('resultado' => 1));
+            echo json_encode($var);
+            exit;
+        } else {
+            $sql = "INSERT INTO `chargeback`
                                 (`nu_qtd`,
                                  `unidade_id`,
                                  `orgao_id`,
@@ -263,16 +268,13 @@ if (isset($_POST['acao']) && $_POST['acao'] == 'cadastrar_chargeback'){
                                  '$ID_ORGAO',
                                  '$ID_ITEM[$x]',
                                  '$ID_CATEGORIA')";
-        f_escrita($db, $sql);	
+            f_escrita($db, $sql);
+        }
     }
-					
-	/*$var = Array(array('resultado' => $sql));
-	echo json_encode($var);
-	exit;*/
-		
-	$var = Array(array('resultado' => 0));
-	echo json_encode($var);
-	exit;	
+    $var = Array(array('resultado' => 0));
+    echo json_encode($var);
+    exit;
+
 }
 
 ?>
