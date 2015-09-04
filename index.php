@@ -1,20 +1,22 @@
-<!DOCTYPE html>
-<html>
-<head lang="pt-br">
-<meta charset="utf-8" />
+<!doctype html>
+<html lang="pt-br">
 <title>CeTIC</title>
-<link rel="stylesheet" type="text/css" href="css/estilo.css">
-<link href="css/bootstrap.min.css" type="text/css" rel="stylesheet">
-<link href="css/chosen.css" type="text/css" rel="stylesheet">
-<link href="plug-in/dataTable-1.10.0/media/css/jquery.dataTables.css" type="text/css" rel="stylesheet">
-<link href="plug-in/dataTable-1.10.0/media/css/dataTable.tableTools.css" type="text/css" rel="stylesheet">
-<link href="css/colorbox.css" rel="stylesheet" type="text/css">
-<script type="text/javascript" charset="utf-8" src="plug-in/dataTable-1.10.0/media/js/jquery.js"></script>
-<script type="text/javascript" charset="utf-8" src="plug-in/dataTable-1.10.0/media/js/jquery.dataTables.js"></script>
-<script type="text/javascript" charset="utf-8" src="plug-in/dataTable-1.10.0/media/js/dataTables.tableTools.js"></script>
-<script type="text/javascript" charset="utf-8" src="js/jquery.colorbox-min.js"></script>
-<script type="text/javascript" charset="utf-8" src="js/colorbox.js"></script>
-</head>
+<meta charset="utf-8" />
+<!--[if lt IE 9]>
+<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js">
+</script>
+<![endif]-->
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/chosen.css">
+<link rel="stylesheet" href="css/estilo.css">
+<link rel="stylesheet" href="plug-in/dataTable-1.10.0/media/css/jquery.dataTables.css">
+<link rel="stylesheet" href="plug-in/dataTable-1.10.0/media/css/dataTable.tableTools.css">
+<link rel="stylesheet" href="css/colorbox.css">
+<script src="plug-in/dataTable-1.10.0/media/js/jquery.js"></script>
+<script src="plug-in/dataTable-1.10.0/media/js/jquery.dataTables.js"></script>
+<script src="plug-in/dataTable-1.10.0/media/js/dataTables.tableTools.js"></script>
+<script src="js/jquery.colorbox-min.js"></script>
+<script src="js/colorbox.js"></script>
 <body>
 
 <?php

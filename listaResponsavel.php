@@ -1,36 +1,8 @@
-<!DOCTYPE html>
-<html>
-<head lang="pt-br">
-<meta charset="utf-8" />
-<title>CeTIC</title>
-<link rel="stylesheet" type="text/css" href="css/estilo.css">
-<link href="css/bootstrap.min.css" type="text/css" rel="stylesheet">
-<link href="css/chosen.css" type="text/css" rel="stylesheet">
-<link href="plug-in/dataTable-1.10.0/media/css/jquery.dataTables.css" type="text/css" rel="stylesheet">
-<link href="plug-in/dataTable-1.10.0/media/css/dataTable.tableTools.css" type="text/css" rel="stylesheet">
-<link href="css/colorbox.css" rel="stylesheet" type="text/css">
-<script type="text/javascript" charset="utf-8" src="plug-in/dataTable-1.10.0/media/js/jquery.js"></script>
-<script type="text/javascript" charset="utf-8" src="plug-in/dataTable-1.10.0/media/js/jquery.dataTables.js"></script>
-<script type="text/javascript" charset="utf-8" src="plug-in/dataTable-1.10.0/media/js/dataTables.tableTools.js"></script>
-<script type="text/javascript" charset="utf-8" src="js/jquery.colorbox-min.js"></script>
-<script type="text/javascript" charset="utf-8" src="js/colorbox.js"></script>
-<style type="text/css">
-body {
-	margin:0;
-	padding:0;
-	text-align:center; /* hack para o IE */	
-	}
-#tudo {
-	width: 1024px;
-	margin:0 auto;			
-	text-align:left; /* "remédio" para o hack do IE */	
-	}
-</style>
-</head>
-<body >
-<div id="tudo">
+<?php
+require ("menuInterno.php");
+?>
+<div id="centro">
     <?php
-        require("banco/conecta.php");
         $id_unidade = $_GET['idunidade'];
 		$id_orgao   = $_GET['idorgao'];
 
@@ -56,7 +28,7 @@ body {
     <div class="navbar" style="margin-top:20px;">
         <div class="navbar-inner">
             <a class="brand" href="#">Responsáveis</a>
-            <a class="iframe" style="margin-left:600px" href="cadastroResponsavel.php?idunidade=<?php echo $id_unidade; ?>&idorgao=<?php echo $id_orgao;?>" style="text-decoration:none;"><i class="btn btn-success">Cadastro de Responsável</i></a>
+            <a class="iframe" style="margin-left:700px" href="cadastroResponsavel.php?idunidade=<?php echo $id_unidade; ?>&idorgao=<?php echo $id_orgao;?>" style="text-decoration:none;"><i class="btn btn-primary">Cadastro de Responsável</i></a>
     	</div>
     </div>
 	<?php

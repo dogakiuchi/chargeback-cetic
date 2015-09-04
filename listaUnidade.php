@@ -1,53 +1,17 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>CeTIC</title>
-<link rel="stylesheet" type="text/css" href="css/estilo.css">
-<link href="css/bootstrap.min.css" type="text/css" rel="stylesheet">
-<link href="css/chosen.css" type="text/css" rel="stylesheet">
-<link href="plug-in/dataTable-1.10.0/media/css/jquery.dataTables.css" type="text/css" rel="stylesheet">
-<link href="plug-in/dataTable-1.10.0/media/css/dataTable.tableTools.css" type="text/css" rel="stylesheet">
-<link href="css/colorbox.css" rel="stylesheet" type="text/css">
-<script type="text/javascript" charset="utf-8" src="plug-in/dataTable-1.10.0/media/js/jquery.js"></script>
-<script type="text/javascript" charset="utf-8" src="plug-in/dataTable-1.10.0/media/js/jquery.dataTables.js"></script>
-<script type="text/javascript" charset="utf-8" src="plug-in/dataTable-1.10.0/media/js/dataTables.tableTools.js"></script>
-<script type="text/javascript" charset="utf-8" src="js/jquery.colorbox-min.js"></script>
-<script type="text/javascript" charset="utf-8" src="js/colorbox.js"></script>
-<style type="text/css">
-body {
-	margin:0;
-	padding:0;
-	text-align:center; /* hack para o IE */	
-	}
-#tudo {
-	width: 1024px;
-	margin:0 auto;			
-	text-align:left; /* "remédio" para o hack do IE */	
-	}
-</style>
-</head>
-<body >
-<div id="tudo">
+<?php
+require ("menuInterno.php");
+?>
+<div id="centro">
     <?php
-        require("banco/conecta.php");
 		$id_orgao = $_GET['idorgao'];
         $sql1 = "SELECT no_orgao FROM orgao WHERE id=".$id_orgao;
         $orgao = f_leitura_campo($db, $sql1);
     ?>
     <br/>
-    <table class="table table-striped table-bordered" >
-        <tbody>
-            <tr>
-                <td style="font-weight:bold">Órgão</td>
-                <td><?php echo $orgao; ?></td>
-            </tr>
-        </tbody>
-    </table>
-    <div class="navbar" style="margin-top:20px;">
+    <div class="navbar">
         <div class="navbar-inner">
-            <a class="brand" href="#">Unidades</a>
-            <a class="iframe" style="margin-left:700px" href="cadastroUnidade.php?id=<?php echo $id_orgao; ?>&org=<?php echo $orgao?>" style="text-decoration:none;"><i class="btn btn-success">Cadastro de Unidade</i></a>
+            <a class="brand" href="#"><?php echo $orgao; ?></a>
+            <a class="iframe" style="margin-left:600px" href="cadastroUnidade.php?id=<?php echo $id_orgao; ?>&org=<?php echo $orgao?>" style="text-decoration:none;"><i class="btn btn-primary">Cadastro de Unidade</i></a>
     	</div>
     </div>
 	<?php
@@ -63,7 +27,7 @@ body {
 	?>
         <table id="tabela_orgao"  class="table table-striped table-bordered" width="100%">
             <thead>
-                <th>Nome</th>
+                <th>Unidade</th>
                 <th>Sigla</th>
                 <th>Responsáveis</th>
                 <th>Editar</th>

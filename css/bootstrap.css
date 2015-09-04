@@ -2089,7 +2089,7 @@ table {
 
 .table-striped tbody tr:nth-child(odd) td,
 .table-striped tbody tr:nth-child(odd) th {
-  background-color: #f9f9f9;
+  background-color: #E4F1FD;
 }
 
 .table-hover tbody tr:hover td,
@@ -2846,6 +2846,7 @@ table th[class*="span"],
 }
 
 .dropdown-menu {
+    left: 0px;
   position: absolute;
   top: 100%;
   right: 0;
@@ -4292,9 +4293,9 @@ input[type="submit"].btn.btn-mini {
   float: left;
   padding: 10px 20px 10px;
   margin-left: -20px;
-  font-size: 20px;
-  font-weight: 200;
-  color: #777777;
+  font-size: 14px;
+  font-weight: bold;
+  color: #000000;
   text-shadow: 0 1px 0 #ffffff;
 }
 

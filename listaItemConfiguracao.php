@@ -1,30 +1,11 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="utf-8" />
-<title>CeTIC</title>
-<link href="css/bootstrap.min.css" type="text/css" rel="stylesheet">
-<link href="css/chosen.css" type="text/css" rel="stylesheet">
-<link rel="stylesheet" type="text/css" href="css/estilo.css">
-<link href="plug-in/dataTable-1.10.0/media/css/jquery.dataTables.css" type="text/css" rel="stylesheet">
-<link href="plug-in/dataTable-1.10.0/media/css/dataTable.tableTools.css" type="text/css" rel="stylesheet">
-<link href="css/colorbox.css" rel="stylesheet" type="text/css">
-<script type="text/javascript" charset="utf-8" src="plug-in/dataTable-1.10.0/media/js/jquery.js"></script>
-<script type="text/javascript" charset="utf-8" src="plug-in/dataTable-1.10.0/media/js/jquery.dataTables.js"></script>
-<script type="text/javascript" charset="utf-8" src="plug-in/dataTable-1.10.0/media/js/dataTables.tableTools.js"></script>
-<script type="text/javascript" charset="utf-8" src="js/jquery.colorbox-min.js"></script>
-<script type="text/javascript" charset="utf-8" src="js/colorbox.js"></script>
-</head>
-<body >
+<?php
+require ("menuInterno.php");
+?>
 <div id="centro">
-    <?php
-        require("banco/conecta.php");
-	?>
-    <br/>
-    <div class="navbar" style="margin-top:20px;">
+    <div class="navbar">
         <div class="navbar-inner">
             <a class="brand" href="#">Itens de Configuração</a>
-            <a class="iframe" style="margin-left:700px" href="cadastroItemConfiguracao.php" style="text-decoration:none;"><i class="btn btn-success">Cadastro de IC</i></a>
+            <a class="iframe" style="margin-left:700px" href="cadastroItemConfiguracao.php" style="text-decoration:none;"><i class="btn btn-primary">Cadastro de IC</i></a>
     	</div>
     </div>
 	<?php
@@ -80,11 +61,6 @@
         }// fecha else if
     ?>
     </table>
-<div class="navbar" style="margin-top:20px;">
-    <div class="navbar-inner" style="text-align:center;">
-        <a href="#"><input type="button" value="VOLTAR" id="voltar" class="btn" onsubmit="return false;" /></a>
-    </div>
-</div>
 </div>
 </body>
 </html>
