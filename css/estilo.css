@@ -19,13 +19,23 @@ label{
     cursor: pointer;
 }
 
-.meuSelect{
+.meuSelect, .meuInput{
 	width: 400px;
 }
+
 
 .formularioModal{
     margin: 0 auto;
     width: 800px;
+}
+
+p.subtitulo{
+    color: #D71F2C;
+    font-weight: bold;
+    display: block;
+    float: left;
+    font-size: 14px;
+    padding: 10px 20px;
 }
 /*
 body{

@@ -29,7 +29,7 @@
         <a class="brand" href="#" style="margin-left:0"></a>
           <div class="nav-collapse collapse navbar-responsive-collapse">
             <ul class="nav ">
-                <li><a href="#">Início</a></li>
+                <li><a href="listaChargeback.php">Início</a></li>
                 <li class="dropdown">
                   <a class="dropdown-toggle" data-toggle="dropdown" href="#">Web <span class="caret"></span></a>
                   <ul class="dropdown-menu">

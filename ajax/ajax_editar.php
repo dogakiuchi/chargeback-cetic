@@ -188,5 +188,29 @@ if (isset($_POST['acao']) && $_POST['acao'] == 'editar_itemdeconfiguracao'){
     exit;	
 }
 
+/* ########################### EDITAR CHARGEBACK ##########################################*/
+if (isset($_POST['acao']) && $_POST['acao'] == 'editar_chargeback'){
+    $ID         = $_POST['ID'];
+    $NU_QTD     = $_POST['NU_QTD'];
 
+	$sql = "UPDATE `chargeback`
+            SET
+				`nu_qtd` = '".$NU_QTD."',
+				`dt_atualizacao` = now()
+			WHERE `id` = ".$ID."";
+			
+    /*$var = Array(array(
+			'resultado' => $sql
+		));
+    echo json_encode($var);
+    exit;*/
+    
+	f_escrita($db, $sql);
+		
+	$var = Array(array(
+		'resultado' => 0
+	));
+    echo json_encode($var);
+    exit;	
+}
 ?>

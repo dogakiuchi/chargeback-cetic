@@ -11,7 +11,7 @@ require ("menuInterno.php");
     <div class="navbar">
         <div class="navbar-inner">
             <a class="brand" href="#"><?php echo $orgao; ?></a>
-            <a class="iframe" style="margin-left:600px" href="cadastroUnidade.php?id=<?php echo $id_orgao; ?>&org=<?php echo $orgao?>" style="text-decoration:none;"><i class="btn btn-primary">Cadastro de Unidade</i></a>
+            <a class="iframe" style="margin-left:350px" href="cadastroUnidade.php?id=<?php echo $id_orgao; ?>&org=<?php echo $orgao?>" style="text-decoration:none;"><i class="btn btn-primary">Cadastro de Unidade</i></a>
     	</div>
     </div>
 	<?php

@@ -262,12 +262,14 @@ if (isset($_POST['acao']) && $_POST['acao'] == 'cadastrar_chargeback'){
                                  `unidade_id`,
                                  `orgao_id`,
                                  `itemdeconfiguracao_id`,
-                                 categoriaitem_id)
+                                 `categoriaitem_id`,
+                                 `dt_cadastro`)
 			             VALUES ('$QTD[$x]',
                                  '$ID_UNIDADE',
                                  '$ID_ORGAO',
                                  '$ID_ITEM[$x]',
-                                 '$ID_CATEGORIA')";
+                                 '$ID_CATEGORIA',
+                                 now())";
             f_escrita($db, $sql);
         }
     }

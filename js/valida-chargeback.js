@@ -4,7 +4,6 @@ $(function () {
         qtd = new Array(),
         itens = new Array();
     $("#salvar_chargeback").click(function () {
-		    //alert("passou");
         if ($("#nu_qtd").val() === "" || $("#nu_qtd").val() === null) {
             $("#div_qtd").addClass("error");
             $("#nu_qtd").addClass("inputError");
@@ -49,24 +48,13 @@ $(function () {
             });
         } else {
             //alert("passou");
-            acao = "editar_unidade";
-            if (document.getElementById("ativo").checked === true) {
-                status = 1;
-            } else {
-                status = 0;
-            }
+            acao = "editar_chargeback";
             $.ajax({
                 url: 'ajax/ajax_editar.php',
 				type: 'POST',
 				data: {
-				    NO_SIGLA: $("#no_sigla").val(),
-                    NO_UNIDADE: $("#no_unidade").val(),
-                    ID_UNIDADE: $("#id_unidade").val(),
-				    ID_ORGAO: $("#no_orgao").val(),
-                    NO_ENDERECO: $("#no_endereco").val(),
-                    NU_CEP: $("#nu_cep").val(),
-                    ID_CIDADE: $("#no_cidade").val(),
-				    STATUS: status,
+				    NU_QTD: $("#qtd").val(),
+                    ID: $("#id").val(),
 				    acao: acao
 				},
 				dataType: 'json',
@@ -78,14 +66,10 @@ $(function () {
 				        return false;
                     }
 				    if (resultado == 0)
-                        $().toastmessage("showSuccessToast", "Unidade alterada!");
+                        $().toastmessage("showSuccessToast", "Quantidade alterada!");
 				}
             });
         }
     });
 		
-    ("input").change(function () {
-        (".input").removeClass("error");
-        ("input").removeClass("inputError");
-    });
 });

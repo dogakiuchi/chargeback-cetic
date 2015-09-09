@@ -32,4 +32,11 @@
 	f_escrita($db,$sql);
 	header("Location: ../listaItemConfiguracao.php");
 	}
+
+    /* Deleta Chargeback */
+	if ($OBJ==5){
+	$sql = "DELETE FROM chargeback WHERE id = ".$ID;
+	f_escrita($db,$sql);
+	header("Location: ../detalhaChargeback.php?idorgao=$ID_ORGAO");
+	}
 ?>
