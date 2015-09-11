@@ -20,7 +20,7 @@
 $(function(){
 	$('#no_orgao').change(function(){
 		if( $(this).val()) {
-			$.getJSON('ajax/ajax_unidade.php?search=',{no_orgao: $(this).val(), ajax: 'true'}, function(j){
+			$.getJSON('ajax/ajax_unidade.php',{no_orgao: $(this).val(), ajax: 'true'}, function(j){
 				var options = '<option>SELECIONE UMA UNIDADE</option>';	
 				for (var i = 0; i < j.length; i++) {
 					options += '<option value="' + j[i].id + '">' + j[i].no_unidade + '</option>';

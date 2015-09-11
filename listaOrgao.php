@@ -5,7 +5,7 @@ require ("menuInterno.php");
     <div class="navbar" style="margin-top:20px;">
         <div class="navbar-inner">
             <a class="brand" href="#">Órgãos da Administração Direta e Indireta</a>
-            <a class="iframe" style="margin-left:600px" href="cadastroOrgao.php" style="text-decoration:none;"><i class="btn btn-primary">Cadastro de Órgãos</i></a>
+            <a class="iframe" style="margin-left:600px" href="cadastroOrgao.php" style="text-decoration:none;"><i class="btn btn-primary">Cadastrar</i></a>
             <!--<a class="iframe" style="margin-left:600px"href="cadastroOrgao.php" style="text-decoration:none;"><i class="icon-file"></i></a>-->
         </div>
     </div>

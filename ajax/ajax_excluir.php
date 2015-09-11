@@ -39,4 +39,11 @@
 	f_escrita($db,$sql);
 	header("Location: ../detalhaChargeback.php?idorgao=$ID_ORGAO");
 	}
+
+    /* Deleta Chargeback */
+	if ($OBJ==6){
+	$sql = "DELETE FROM circuitompls WHERE id = ".$ID;
+	f_escrita($db,$sql);
+	header("Location: ../listaCircuitompls.php");
+	}
 ?>

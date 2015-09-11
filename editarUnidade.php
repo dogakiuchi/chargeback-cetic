@@ -2,11 +2,12 @@
 <html>
 <head lang="pt-br">
 <meta charset="utf-8" />
-<title>GoTIC</title>
-<link href="css/estilo.css" rel="stylesheet" type="text/css" />
+<title>CeTIC</title>
 <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
 <link href="css/jquery.toastmessage-min.css" rel="stylesheet" type="text/css" />
+<link href="css/estilo.css" rel="stylesheet" type="text/css" />
 <script src="js/jquery.js"></script>
+<script src="js/jquery.mask.min.js"></script>
 <script src="js/jquery.toastmessage.js"></script>
 <script src="js/valida-unidade.js"></script>
 </head>
@@ -17,21 +18,19 @@
 		$sql = "SELECT * FROM unidade WHERE id = ".$ID;
 		$res = f_leitura($db, $sql);
 	?>
-	<div id="centro_editar">
-        <div class="navbar" style="margin-top:20px;">
+	<div id="formularioModal">
+        <div class="navbar">
             <div class="navbar-inner">
-                <h3 class="title_cadastro_portais">Editar Unidade</h3>
+                <h4>Editar Unidade</h4>
             </div>
         </div>
-    </div>
-    <div id="form_cadastro">
         <form name="form" method="post" action="" onsubmit="return false;">
             <input type="hidden" name="id_unidade" id="id_unidade" value="<?php echo $ID; ?>" />
 			<div class="form-horizontal">
                 <div id="div_orgao" class="control-group">
-                         <label style="font-weight:bold;" class="control-label">Órgão</label>				
+                         <label class="control-label">Órgão</label>				
                          <div class="controls">
-                            <select  name="no_orgao" id="no_orgao" style="width:550px;">
+                            <select  name="no_orgao" id="no_orgao" class="meuSelect">
 								<option value="-"></option>
                                 <?php
 								    $sql1 = "SELECT id, no_orgao FROM orgao ORDER BY no_orgao";
@@ -51,31 +50,31 @@
 						</div>
 				</div>
             	<div id="div_nome" class="control-group">
-                    <label style="font-weight:bold;" class="control-label">Nome</label>
+                    <label class="control-label">Nome</label>
 					<div class="controls">
                     <input type="text" name="no_unidade" id="no_unidade" style="width:550px;" maxlength="100" value="<?php echo $res[0][1]; ?>" required />
                     </div>
                 </div>
                 <div id="div_sigla" class="control-group">
-                    <label style="font-weight:bold;" class="control-label">Sigla</label>
+                    <label class="control-label">Sigla</label>
 					<div class="controls">
                     <input type="text" name="no_sigla" id="no_sigla" maxlength="30" value="<?php echo $res[0][2]; ?>"  />
                     </div>
                 </div>
                 <div id="div_endereco" class="control-group">
-                    <label style="font-weight:bold;" class="control-label">Endereço</label>
+                    <label class="control-label">Endereço</label>
 					<div class="controls">
                     <input type="text" name="no_endereco" id="no_endereco" maxlength="100" style="width:550px;" value="<?php echo $res[0][3]; ?>" />
                     </div>
                 </div>
                 <div id="div_cep" class="control-group">
-                    <label style="font-weight:bold;" class="control-label">CEP</label>
+                    <label class="control-label">CEP</label>
 					<div class="controls">
                     <input type="text" name="nu_cep" id="nu_cep" maxlength="20"  value="<?php echo $res[0][4]; ?>" />
                     </div>
                 </div>
                 <div id="div_cidade" class="control-group">
-                         <label style="font-weight:bold;" class="control-label">Cidade</label>				
+                         <label class="control-label">Cidade</label>				
                          <div class="controls">
                             <select  name="no_cidade" id="no_cidade">
                                 <?php
@@ -96,7 +95,7 @@
 						</div>
 				</div>
                  <div id="div_status" class="control-group">
-                    <label style="font-weight:bold;" class="control-label">Status</label>
+                    <label class="control-label">Status</label>
 					<div class="controls">
                     <input type="radio" name="status" id="ativo" value="1" style="margin-top:1px;" <?php if ($res[0][5] == 1) {echo "checked='checked'"; } ?> /><span> Ativo </span>
                     <input type="radio" name="status" id="inativo" value="0" style="margin-top:1px;" <?php if ($res[0][5] == 0) {echo "checked='checked'";} ?> /><span> Inativo </span>

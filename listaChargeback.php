@@ -5,7 +5,7 @@ require ("menuInterno.php");
     <div class="navbar">
         <div class="navbar-inner">
             <a class="brand" href="#">Chargeback Consolidado</a>
-            <a class="iframe" style="margin-left:600px" href="cadastroChargeback.php" ><i class="btn btn-primary">Cadastro Chargeback</i></a>
+            <a class="iframe" style="margin-left:600px" href="cadastroChargeback.php" ><i class="btn btn-primary">Cadastrar</i></a>
             <!--<a class="iframe" style="margin-left:600px"href="cadastroOrgao.php" style="text-decoration:none;"><i class="icon-file"></i></a>-->
         </div>
     </div>

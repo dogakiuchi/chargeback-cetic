@@ -28,24 +28,24 @@ require ("menuInterno.php");
     <div class="navbar" style="margin-top:20px;">
         <div class="navbar-inner">
             <a class="brand" href="#">Responsáveis</a>
-            <a class="iframe" style="margin-left:700px" href="cadastroResponsavel.php?idunidade=<?php echo $id_unidade; ?>&idorgao=<?php echo $id_orgao;?>" style="text-decoration:none;"><i class="btn btn-primary">Cadastro de Responsável</i></a>
+            <a class="iframe" style="margin-left:700px" href="cadastroResponsavel.php?idunidade=<?php echo $id_unidade; ?>&idorgao=<?php echo $id_orgao;?>" style="text-decoration:none;"><i class="btn btn-primary">Cadastrar</i></a>
     	</div>
     </div>
 	<?php
-        $sql = "SELECT no_responsavel, nu_telefone, no_email, id
+        $sql = "SELECT no_responsavel, nu_telefone, no_email, id, nu_celular
                 FROM responsavel
                 WHERE orgao_id = ".$id_orgao." AND unidade_id = ".$id_unidade."
                 ORDER BY no_responsavel";
         $res = f_leitura($db, $sql);
         if (empty($res)) {
-            echo '<br>';
             echo '<h4 style="text-align:center;">Não existe responsável cadastrado!</h4>';
 	   } else if (!empty($res)){
 	?>
         <table id="tabela_orgao"  class="table table-striped table-bordered" width="100%">
             <thead>
                 <th>Nome</th>
-                <th>Telefone</th>
+                <th>Tel. Fixo</th>
+                <th>Tel. Celular</th>
                 <th>E-mail</th>
                 <th>Editar</th>
                 <th>Detalhar</th>
@@ -58,6 +58,7 @@ require ("menuInterno.php");
                 <tr class="over">
                     <td><?php echo $resp[0]; ?></td>
                     <td><?php echo $resp[1]; ?></td>
+                    <td><?php echo $resp[4]; ?></td>
                     <td><?php echo $resp[2]; ?></td>
                     <td style="text-align:center;"><a class="iframe" href="editarResponsavel.php?id=<?php echo $resp[3]; ?>" style="text-decoration:none;"><i class="icon-edit"></i></a></td>
                     <td style="text-align:center;"><a class="iframe" href="detalhaResponsavel.php?id=<?php echo $resp[3]; ?>" style="text-decoration:none;"><i class="icon-eye-open"></i></a></td>

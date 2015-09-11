@@ -2,6 +2,7 @@ $(function () {
     //alert("passou");
     var acao = null,
         status = null;
+    $("#nu_cep").mask("00000-000"),
     $("#salvar_unidade").click(function () {
 		    //alert("passou");
         if ($("#no_unidade").val() === "" || $("#no_unidade").val() === null) {

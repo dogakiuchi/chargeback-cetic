@@ -2,13 +2,14 @@
 <html>
 <head lang="pt-br">
 <meta charset="utf-8" />
-<title>GoTIC</title>
-<link rel="stylesheet" type="text/css" href="css/estilo.css">
+<title>CeTIC</title>
 <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="css/estilo.css">
 <link href="css/jquery.toastmessage-min.css" rel="stylesheet" type="text/css" />
 <script src="js/jquery.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/jquery.toastmessage.js"></script>
+<script src="js/jquery.mask.min.js"></script>
 <script src="js/valida-responsavel.js"></script>
 </head>
 <body>
@@ -23,8 +24,8 @@ $orgao = f_leitura_campo($db, $sql1);
 $sql2 = "SELECT no_unidade FROM unidade WHERE id=".$id_unidade;
 $unidade = f_leitura_campo($db, $sql2);
 ?>
-	<div id="centro_editar">
-	<div class="navbar" style="margin-top:20px;">
+	<div class="formularioModal">
+	<div class="navbar">
     	<div class="navbar-inner">
         	<h4 class="title_cadastro_portais">Cadastro de Responsável</h4>
         </div>
@@ -36,13 +37,13 @@ $unidade = f_leitura_campo($db, $sql2);
             <input type="hidden" name="id_unidade" id="id_unidade"  value="<?php echo $id_unidade;?>"/>
 		    <div class="form-horizontal">
 				<div id="div_orgao" class="control-group">
-                        <label style="font-weight:bold;" class="control-label">Órgão</label>
+                        <label  class="control-label">Órgão</label>
                         <div class="controls">
 						<input type="text" readonly="true" name="no_orgao" id="no_orgao"  style="width:550px;" maxlength="100" value="<?php echo $orgao; ?>" />
 						</div>
                 </div>
-                <div id="div_orgao" class="control-group">
-                        <label style="font-weight:bold;" class="control-label">Unidade</label>
+                <div id="div_unidade" class="control-group">
+                        <label  class="control-label">Unidade</label>
                         <div class="controls">
 						<input type="text" readonly="true" name="no_unidade" id="no_unidade"  style="width:550px;" maxlength="100" value="<?php echo $unidade; ?>" />
 						</div>
@@ -53,24 +54,36 @@ $unidade = f_leitura_campo($db, $sql2);
 						<input type="text" name="no_responsavel" id="no_responsavel"  style="width:550px;" maxlength="100" required />
 						</div>
                 </div>
-                <div id="div_sigla" class="control-group">
-                        <label style="font-weight:bold;" class="control-label">Telefone</label>
+                <div id="div_telefone" class="control-group">
+                        <label class="control-label">Telefone</label>
 						<div class="controls">
                         <input type="text" name="nu_telefone" id="nu_telefone" maxlength="30" />
 						</div>
                 </div>
-				<div id="div_endereco" class="control-group">
-                        <label style="font-weight:bold;" class="control-label">E-mail</label>
+                <div id="div_celular" class="control-group">
+                        <label  class="control-label">Celular</label>
 						<div class="controls">
-                        <input type="text" name="no_email" id="no_email" maxlength="100" style="width:500px;"/>
+                        <input type="text" name="nu_celular" id="nu_celular" maxlength="30" />
+						</div>
+                </div>
+				<div id="div_endereco" class="control-group">
+                        <label class="control-label">E-mail</label>
+						<div class="controls">
+                        <input type="text" name="no_email" id="no_email" maxlength="100" class="meuInput"/>
 						</div>
                 </div>
                 <div id="div_status" class="control-group">
-                    	 <label style="font-weight:bold;" class="control-label"> Status</label>
+                    	 <label class="control-label"> Status</label>
 						 <div class="controls">
                          <input type="radio" name="status" id="ativo" value="1" style="margin-top:1px;" checked="checked" /> <span> Ativo </span>
                          <input type="radio" name="status" id="inativo" value="0" style="margin-top:1px;" /> <span> Inativo </span>
 						 </div>
+                </div>
+				<div id="div_obs" class="control-group">
+                        <label class="control-label">Observação</label>
+						<div class="controls">
+                        <textarea name="ds_observacao" id="ds_observacao" rows="2" cols="100" style="width:550px;"></textarea>
+						</div>
                 </div>
                 <div class="control-group">
 					<div class="controls">

@@ -11,7 +11,7 @@ require ("menuInterno.php");
     <div class="navbar">
         <div class="navbar-inner">
             <a class="brand" href="#"><?php echo $orgao; ?></a>
-            <a class="iframe" style="margin-left:350px" href="cadastroUnidade.php?id=<?php echo $id_orgao; ?>&org=<?php echo $orgao?>" style="text-decoration:none;"><i class="btn btn-primary">Cadastro de Unidade</i></a>
+            <a class="iframe" style="margin-left:350px" href="cadastroUnidade.php?id=<?php echo $id_orgao; ?>&org=<?php echo $orgao?>" style="text-decoration:none;"><i class="btn btn-primary">Cadastrar</i></a>
     	</div>
     </div>
 	<?php
@@ -62,8 +62,8 @@ require ("menuInterno.php");
         }// fecha else if
     ?>
     </table>
-<div class="navbar" style="margin-top:20px;">
-    <div class="navbar-inner" style="text-align:center;">
+<div class="navbar">
+    <div class="navbar-inner menuInferior">
         <a href="listaOrgao.php"><input type="button" value="VOLTAR" id="voltar" class="btn" onsubmit="return false;" /></a>
     </div>
 </div>

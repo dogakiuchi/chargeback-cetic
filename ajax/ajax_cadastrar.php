@@ -170,25 +170,31 @@ if (isset($_POST['acao']) && $_POST['acao'] == 'cadastrar_unidade'){
 if (isset($_POST['acao']) && $_POST['acao'] == 'cadastrar_responsavel'){
 	$NO_RESPONSAVEL = $_POST['NO_RESPONSAVEL'];
 	$NU_TELEFONE   = $_POST['NU_TELEFONE'];
-	$NO_EMAIL = $_POST['NO_EMAIL'];
-	$STATUS     = $_POST['STATUS'];
-	$ID_ORGAO   = $_POST['ID_ORGAO'];
-    $ID_UNIDADE = $_POST['ID_UNIDADE'];
+    $NU_CELULAR    = $_POST['NU_CELULAR'];
+	$NO_EMAIL      = $_POST['NO_EMAIL'];
+	$STATUS        = $_POST['STATUS'];
+    $DS_OBSERVACAO = $_POST['DS_OBSERVACAO'];
+	$ID_ORGAO      = $_POST['ID_ORGAO'];
+    $ID_UNIDADE    = $_POST['ID_UNIDADE'];
 
 		
 	$sql = "INSERT INTO `responsavel`
 					(`no_responsavel`,
 					`nu_telefone`,
+                    `nu_celular`,
 					`no_email`,
 					`status`,
+                    `ds_observacao`,
 					`orgao_id`,
                     `unidade_id`,
 					`dt_cadastro`)
 				VALUES
 					('".$NO_RESPONSAVEL."',
 					 '".$NU_TELEFONE."',
+                     '".$NU_CELULAR."',
 					 '".$NO_EMAIL."',
 					 '".$STATUS."',
+                     '".$DS_OBSERVACAO."',
 					 '".$ID_ORGAO."',
                      '".$ID_UNIDADE."',
 					now());";
@@ -279,4 +285,53 @@ if (isset($_POST['acao']) && $_POST['acao'] == 'cadastrar_chargeback'){
 
 }
 
+/* ########################### CADASTRAR CIRCUITO MPLS ##########################################*/
+if (isset($_POST['acao']) && $_POST['acao'] == 'cadastrar_circuitompls'){
+	$NU_LOTE        = $_POST['NU_LOTE'];
+	$NU_IPLAN       = $_POST['NU_IPLAN'];
+    $NU_MASCARA     = $_POST['NU_MASCARA'];
+	$NU_IPWAN       = $_POST['NU_IPWAN'];
+	$NO_DESIGNACAO  = $_POST['NO_DESIGNACAO'];
+	$ID_ORGAO       = $_POST['ID_ORGAO'];
+    $ID_UNIDADE     = $_POST['ID_UNIDADE'];
+    $ID_RESPONSAVEL = $_POST['ID_RESPONSAVEL'];
+    $ID_CATEGORIA   = $_POST['ID_CATEGORIA'];
+    $ID_ITEM        = $_POST['ID_ITEM'];
+
+		
+	$sql = "INSERT INTO `circuitompls`
+					(`nu_lote`,
+					`ip_lan`,
+                    `ip_mascara`,
+					`ip_wan`,
+					`no_designacao`,
+					`orgao_id`,
+                    `unidade_id`,
+                    `responsavel_id`,
+                    `categoriaitem_id`,
+                    `itemdeconfiguracao_id`,
+					`dt_cadastro`)
+				VALUES
+					('".$NU_LOTE."',
+					 '".$NU_IPLAN."',
+                     '".$NU_MASCARA."',
+					 '".$NU_IPWAN."',
+					 '".$NO_DESIGNACAO."',
+					 '".$ID_ORGAO."',
+                     '".$ID_UNIDADE."',
+                     '".$ID_RESPONSAVEL."',
+                     '".$ID_CATEGORIA."',
+                     '".$ID_ITEM."',
+					now());";
+					
+	/*$var = Array(array('resultado' => $sql));
+	echo json_encode($var);
+	exit;*/
+	
+	f_escrita($db, $sql);
+		
+	$var = Array(array('resultado' => 0));
+	echo json_encode($var);
+	exit;	
+}
 ?>

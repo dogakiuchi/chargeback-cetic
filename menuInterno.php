@@ -31,6 +31,20 @@
             <ul class="nav ">
                 <li><a href="listaChargeback.php">Início</a></li>
                 <li class="dropdown">
+                  <a class="dropdown-toggle" data-toggle="dropdown" href="#">Rede <span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="listaCircuitompls.php">Link MPLS</a></li>
+                    <li><a href="#">Link Fibra</a></li>
+                  </ul>
+                </li>
+                <li class="dropdown">
+                  <a class="dropdown-toggle" data-toggle="dropdown" href="#">Servidores <span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="#">Físicos</a></li>
+                    <li><a href="#">VMs</a></li>
+                  </ul>
+                </li>
+                <li class="dropdown">
                   <a class="dropdown-toggle" data-toggle="dropdown" href="#">Web <span class="caret"></span></a>
                   <ul class="dropdown-menu">
                     <li><a href="#">Sistemas</a></li>

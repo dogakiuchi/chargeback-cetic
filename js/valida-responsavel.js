@@ -2,6 +2,8 @@ $(function () {
     //alert("passou");
     var acao = null,
         status = null;
+    $("#nu_telefone").mask("(000) 0000-0000");
+    $("#nu_celular").mask("(000) 0000-0000");
     $("#salvar_responsavel").click(function () {
 		    //alert("passou");
         if ($("#no_responsavel").val() === "" || $("#no_responsavel").val() === null) {
@@ -21,9 +23,12 @@ $(function () {
                 type: 'POST',
                 data: {
                     NO_RESPONSAVEL: $("#no_responsavel").val(),
-				    NU_TELEFONE: $("#nu_telefone").val(),
+				    //NU_TELEFONE: $("#nu_telefone").val().replace(/[^\d]+/g,''),
+                    NU_TELEFONE: $("#nu_telefone").val(),
+                    NU_CELULAR: $("#nu_celular").val(),
 				    NO_EMAIL: $("#no_email").val(),
 				    STATUS: status,
+                    DS_OBSERVACAO: $("#ds_observacao").val(),
 				    ID_ORGAO: $("#id_orgao").val(),
                     ID_UNIDADE: $("#id_unidade").val(),
 				    acao: acao
@@ -56,8 +61,10 @@ $(function () {
 				data: {
 				    NO_RESPONSAVEL: $("#no_responsavel").val(),
 				    NU_TELEFONE: $("#nu_telefone").val(),
+                    NU_CELULAR: $("#nu_celular").val(),
 				    NO_EMAIL: $("#no_email").val(),
 				    STATUS: status,
+                    DS_OBSERVACAO: $("#ds_observacao").val(),
 				    ID_RESPONSAVEL: $("#id_responsavel").val(),
                     ID_ORGAO: $("#id_orgao").val(),
                     ID_UNIDADE: $("#id_unidade").val(),

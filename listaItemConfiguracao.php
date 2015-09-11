@@ -5,7 +5,7 @@ require ("menuInterno.php");
     <div class="navbar">
         <div class="navbar-inner">
             <a class="brand" href="#">Itens de Configuração</a>
-            <a class="iframe" style="margin-left:700px" href="cadastroItemConfiguracao.php" style="text-decoration:none;"><i class="btn btn-primary">Cadastro de IC</i></a>
+            <a class="iframe" style="margin-left:700px" href="cadastroItemConfiguracao.php" style="text-decoration:none;"><i class="btn btn-primary">Cadastrar</i></a>
     	</div>
     </div>
 	<?php

@@ -45,6 +45,10 @@
                         	<td style="font-weight:bold">Telefone</td>
                             <td><?php echo $res[0][2];?></td>
                         </tr>
+                        <tr>
+                        	<td style="font-weight:bold">Celular</td>
+                            <td><?php echo $res[0][9];?></td>
+                        </tr>
                          <tr>
                         	<td style="font-weight:bold">E-mail</td>
                             <td><?php echo $res[0][3];?></td>
@@ -60,6 +64,10 @@
                         <tr>
                         	<td style="font-weight:bold">Data da atualização</td>
                             <td><?php if($res[0][6]==""){echo "NUNCA ATUALIZADO";}else{echo $res[0][6];} ?></td>
+                        </tr>
+                        <tr>
+                        	<td style="font-weight:bold">Observação</td>
+                            <td><?php echo $res[0][10];?></td>
                         </tr>
                 </tbody>
             </table>

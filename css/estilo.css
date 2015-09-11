@@ -23,6 +23,15 @@ label{
 	width: 400px;
 }
 
+.minhaTd{
+   text-align:center !important;
+   font-weight: bold;
+}
+
+.menuInferior{
+    text-align: center;
+    margin-top: 10px;
+}
 
 .formularioModal{
     margin: 0 auto;

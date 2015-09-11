@@ -118,19 +118,23 @@ if (isset($_POST['acao']) && $_POST['acao'] == 'editar_unidade'){
 /* ########################### EDITAR RESPONSÁVEL ##########################################*/
 if (isset($_POST['acao']) && $_POST['acao'] == 'editar_responsavel'){
     $NO_RESPONSAVEL = $_POST['NO_RESPONSAVEL'];
-	$NU_TELEFONE = $_POST['NU_TELEFONE'];
-    $NO_EMAIL = $_POST['NO_EMAIL'];
-	$STATUS   = $_POST['STATUS'];
+	$NU_TELEFONE    = $_POST['NU_TELEFONE'];
+    $NU_CELULAR     = $_POST['NU_CELULAR'];
+    $NO_EMAIL       = $_POST['NO_EMAIL'];
+	$STATUS         = $_POST['STATUS'];
+    $DS_OBSERVACAO  = $_POST['DS_OBSERVACAO'];
 	$ID_RESPONSAVEL = $_POST['ID_RESPONSAVEL'];
-    $ID_ORGAO = $_POST['ID_ORGAO'];
-    $ID_UNIDADE = $_POST['ID_UNIDADE'];
+    $ID_ORGAO       = $_POST['ID_ORGAO'];
+    $ID_UNIDADE     = $_POST['ID_UNIDADE'];
 	
 
 	$sql = "UPDATE `responsavel`
             SET
 				`no_responsavel` = '".$NO_RESPONSAVEL."',
 				`nu_telefone` = '".$NU_TELEFONE."',
+                `nu_celular` = '".$NU_CELULAR."',
                 `no_email` = '".$NO_EMAIL."',
+                `ds_observacao` = '".$DS_OBSERVACAO."',
 				`status` = '".$STATUS."',
                 `orgao_id` = '".$ID_ORGAO."',
                 `unidade_id` = '".$ID_UNIDADE."',
@@ -196,6 +200,44 @@ if (isset($_POST['acao']) && $_POST['acao'] == 'editar_chargeback'){
 	$sql = "UPDATE `chargeback`
             SET
 				`nu_qtd` = '".$NU_QTD."',
+				`dt_atualizacao` = now()
+			WHERE `id` = ".$ID."";
+			
+    /*$var = Array(array(
+			'resultado' => $sql
+		));
+    echo json_encode($var);
+    exit;*/
+    
+	f_escrita($db, $sql);
+		
+	$var = Array(array(
+		'resultado' => 0
+	));
+    echo json_encode($var);
+    exit;	
+}
+
+/* ########################### EDITAR CIRCUITO MPLS ##########################################*/
+if (isset($_POST['acao']) && $_POST['acao'] == 'editar_circuitompls'){
+    $ID             = $_POST['ID'];
+	$NU_LOTE        = $_POST['NU_LOTE'];
+	$NU_IPLAN       = $_POST['NU_IPLAN'];
+    $NU_MASCARA     = $_POST['NU_MASCARA'];
+	$NU_IPWAN       = $_POST['NU_IPWAN'];
+	$NO_DESIGNACAO  = $_POST['NO_DESIGNACAO'];
+    $ID_RESPONSAVEL = $_POST['ID_RESPONSAVEL'];
+    $ID_ITEM        = $_POST['ID_ITEM'];
+
+	$sql = "UPDATE `circuitompls`
+            SET
+				`nu_lote` = '".$NU_LOTE."',
+                `ip_lan` = '".$NU_IPLAN."',
+                `ip_mascara` = '".$NU_MASCARA."',
+                `ip_wan` = '".$NU_IPWAN."',
+                `no_designacao` = '".$NO_DESIGNACAO."',
+                `responsavel_id` = '".$ID_RESPONSAVEL."',
+                `itemdeconfiguracao_id` = '".$ID_ITEM."',
 				`dt_atualizacao` = now()
 			WHERE `id` = ".$ID."";
 			
