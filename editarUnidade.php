@@ -1,14 +1,7 @@
-<!DOCTYPE html>
-<html>
-<head lang="pt-br">
-<meta charset="utf-8" />
-<title>CeTIC</title>
-<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-<link href="css/jquery.toastmessage-min.css" rel="stylesheet" type="text/css" />
-<link href="css/estilo.css" rel="stylesheet" type="text/css" />
-<script src="js/jquery.js"></script>
-<script src="js/jquery.mask.min.js"></script>
-<script src="js/jquery.toastmessage.js"></script>
+<?php
+ require('headFormCadastro.php');
+?>
+<!--Scripts exclusivos do formulário-->
 <script src="js/valida-unidade.js"></script>
 </head>
 <body>
@@ -30,7 +23,7 @@
                 <div id="div_orgao" class="control-group">
                          <label class="control-label">Órgão</label>				
                          <div class="controls">
-                            <select  name="no_orgao" id="no_orgao" class="meuSelect">
+                            <select  name="no_orgao" id="no_orgao" class="input-xxlarge">
 								<option value="-"></option>
                                 <?php
 								    $sql1 = "SELECT id, no_orgao FROM orgao ORDER BY no_orgao";
@@ -52,25 +45,25 @@
             	<div id="div_nome" class="control-group">
                     <label class="control-label">Nome</label>
 					<div class="controls">
-                    <input type="text" name="no_unidade" id="no_unidade" style="width:550px;" maxlength="100" value="<?php echo $res[0][1]; ?>" required />
+                    <input type="text" name="no_unidade" id="no_unidade" class="input-xxlarge" maxlength="100" value="<?php echo $res[0][1]; ?>" required />
                     </div>
                 </div>
                 <div id="div_sigla" class="control-group">
                     <label class="control-label">Sigla</label>
 					<div class="controls">
-                    <input type="text" name="no_sigla" id="no_sigla" maxlength="30" value="<?php echo $res[0][2]; ?>"  />
+                    <input type="text" name="no_sigla" id="no_sigla" class="input-medium" maxlength="15" value="<?php echo $res[0][2]; ?>"  />
                     </div>
                 </div>
                 <div id="div_endereco" class="control-group">
                     <label class="control-label">Endereço</label>
 					<div class="controls">
-                    <input type="text" name="no_endereco" id="no_endereco" maxlength="100" style="width:550px;" value="<?php echo $res[0][3]; ?>" />
+                    <input type="text" name="no_endereco" id="no_endereco" class="input-xxlarge" maxlength="100" class="input-xxlarge" value="<?php echo $res[0][3]; ?>" />
                     </div>
                 </div>
                 <div id="div_cep" class="control-group">
                     <label class="control-label">CEP</label>
 					<div class="controls">
-                    <input type="text" name="nu_cep" id="nu_cep" maxlength="20"  value="<?php echo $res[0][4]; ?>" />
+                    <input type="text" name="nu_cep" id="nu_cep" class="input-medium" maxlength="20"  value="<?php echo $res[0][4]; ?>" />
                     </div>
                 </div>
                 <div id="div_cidade" class="control-group">
@@ -97,8 +90,8 @@
                  <div id="div_status" class="control-group">
                     <label class="control-label">Status</label>
 					<div class="controls">
-                    <input type="radio" name="status" id="ativo" value="1" style="margin-top:1px;" <?php if ($res[0][5] == 1) {echo "checked='checked'"; } ?> /><span> Ativo </span>
-                    <input type="radio" name="status" id="inativo" value="0" style="margin-top:1px;" <?php if ($res[0][5] == 0) {echo "checked='checked'";} ?> /><span> Inativo </span>
+                    <label class="radio inline"><input type="radio" name="status" id="ativo" value="1" <?php if ($res[0][5] == 1) {echo "checked='checked'"; } ?> />Ativo</label>
+                    <label class="radio inline"><input type="radio" name="status" id="inativo" value="0" <?php if ($res[0][5] == 0) {echo "checked='checked'";} ?> />Inativo</label>
 					</div>
 				</div>
                 <div class="control-group">

@@ -17,6 +17,7 @@
 <script src="plug-in/dataTable-1.10.0/media/js/dataTables.tableTools.js"></script>
 <script src="js/jquery.colorbox-min.js"></script>
 <script src="js/colorbox.js"></script>
+<script src="js/tooltip.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <?php

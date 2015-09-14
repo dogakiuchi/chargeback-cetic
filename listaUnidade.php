@@ -1,17 +1,13 @@
 <?php
 require ("menuInterno.php");
+$id_orgao = $_GET['idorgao'];
+$sql1 = "SELECT no_orgao FROM orgao WHERE id=".$id_orgao;
+$orgao = f_leitura_campo($db, $sql1);
 ?>
 <div id="centro">
-    <?php
-		$id_orgao = $_GET['idorgao'];
-        $sql1 = "SELECT no_orgao FROM orgao WHERE id=".$id_orgao;
-        $orgao = f_leitura_campo($db, $sql1);
-    ?>
-    <br/>
     <div class="navbar">
         <div class="navbar-inner">
-            <a class="brand" href="#"><?php echo $orgao; ?></a>
-            <a class="iframe" style="margin-left:350px" href="cadastroUnidade.php?id=<?php echo $id_orgao; ?>&org=<?php echo $orgao?>" style="text-decoration:none;"><i class="btn btn-primary">Cadastrar</i></a>
+            <a class="iframe brand" href="cadastroUnidade.php?id=<?php echo $id_orgao; ?>&org=<?php echo $orgao?>" data-toggle="tooltip" title="Incluir Unidade"><?php echo $orgao; ?> <i class="icon-plus"></i></a>
     	</div>
     </div>
 	<?php
@@ -21,11 +17,10 @@ require ("menuInterno.php");
                 ORDER BY no_unidade";
         $res = f_leitura($db, $sql);
         if (empty($res)) {
-            echo '<br>';
             echo '<h4 style="text-align:center;">Não existem unidades cadastradas!</h4>';
 	   } else if (!empty($res)){
 	?>
-        <table id="tabela_orgao"  class="table table-striped table-bordered" width="100%">
+        <table id="tabela_orgao"  class="table table-striped table-bordered">
             <thead>
                 <th>Unidade</th>
                 <th>Sigla</th>
@@ -36,25 +31,17 @@ require ("menuInterno.php");
             </thead>
             <tbody>
                 <?php 
-                    $count=0;
                     foreach($res as $unidade) {
                 ?>
-                <tr class="over" <?php if ($count==1):?> id="zebra"<?php endif;?>>
+                <tr>
                     <td><?php echo $unidade[0]; ?></td>
                     <td><?php echo $unidade[1]; ?></td>
-                    <td style="text-align:center;"><a href="listaResponsavel.php?idunidade=<?php echo $unidade[2]; ?>&idorgao=<?php echo $id_orgao;?>" style="text-decoration:none;"><i class="icon-user"></i></a></td>
-                    <td style="text-align:center;"><a class="iframe" href="editarUnidade.php?id=<?php echo $unidade[2]; ?>" style="text-decoration:none;"><i class="icon-edit"></i></a></td>
-                    <td style="text-align:center;"><a class="iframe" href="detalhaUnidade.php?id=<?php echo $unidade[2]; ?>" style="text-decoration:none;"><i class="icon-eye-open"></i></a></td>
-                    <td style="text-align:center;"><a href="ajax/ajax_excluir.php?id=<?php echo $unidade[2];?>&obj=2&idorgao=<?php echo $id_orgao;?>" onClick="if(confirm('Confirma a exclusão?') == true){this.href;return true;}else{return false;}"><i class="icon-remove"></i></a></td>
+                    <td class="minhaTd"><a href="listaResponsavel.php?idunidade=<?php echo $unidade[2]; ?>&idorgao=<?php echo $id_orgao;?>" data-toggle="tooltip" title="Visualizar Responsáveis"><i class="icon-user"></i></a></td>
+                    <td class="minhaTd"><a href="editarUnidade.php?id=<?php echo $unidade[2]; ?>" class="iframe" data-toggle="tooltip" title="Editar Unidade"><i class="icon-edit"></i></a></td>
+                    <td class="minhaTd"><a href="detalhaUnidade.php?id=<?php echo $unidade[2]; ?>" class="iframe" data-toggle="tooltip" title="Detalhar Unidade"><i class="icon-eye-open"></i></a></td>
+                    <td class="minhaTd"><a href="ajax/ajax_excluir.php?id=<?php echo $unidade[2];?>&obj=2&idorgao=<?php echo $id_orgao;?>" data-toggle="tooltip" title="Excluir Unidade" onClick="if(confirm('Confirma a exclusão?') == true){this.href;return true;}else{return false;}"><i class="icon-remove"></i></a></td>
                 </tr>
                 <?php 
-                        if ($count==1){
-                            $count=0;
-                        }
-                        else {
-                            $count++;
-                        }
-  
                     }	//fecha foreach 
                 ?>
             </tbody>

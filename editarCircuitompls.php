@@ -1,15 +1,7 @@
-<!DOCTYPE html>
-<html>
-<head lang="pt-br">
-<meta charset="utf-8" />
-<title>CeTIC</title>
-<link href="css/bootstrap.css" rel="stylesheet" type="text/css">
-<link href="css/jquery.toastmessage-min.css" rel="stylesheet" type="text/css" />
-<link href="css/estilo.css" rel="stylesheet" type="text/css" >
-<script src="js/jquery.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/jquery.toastmessage.js"></script>
-<script src="js/jquery.mask.min.js"></script>
+<?php
+ require('headFormCadastro.php');
+?>
+<!--Scripts exclusivos do formulário-->
 <script src="js/valida-circuitompls.js"></script>
 </head>
 <body>
@@ -46,7 +38,7 @@
                 <div id="div_unidade" class="control-group">
                          <label class="control-label">Responsável</label>	
                             <div class="controls">
-                                <select  name="no_responsavel" id="no_responsavel" class="meuSelect">
+                                <select  name="no_responsavel" id="no_responsavel" class="input-xlarge">
 								    <option value="-">SELECIONE UM RESPONSÁVEL</option>
                                 <?php
 								    $sql2 = "SELECT id, no_responsavel FROM responsavel WHERE unidade_id =".$res[0][9];
@@ -67,7 +59,7 @@
                 <div id="div_categoria" class="control-group">
                          <label class="control-label">Item</label>
                             <div class="controls">
-                                <select name="no_item" id="no_item" class="meuSelect">
+                                <select name="no_item" id="no_item" class="input-xlarge">
 								<option value="-">SELECIONE UM ITEM</option>
                                 <?php
 								    $sql1 = "SELECT id, no_item FROM itemdeconfiguracao WHERE categoriaitem_id = 4 AND no_item LIKE '%MPLS%' ORDER BY no_item";

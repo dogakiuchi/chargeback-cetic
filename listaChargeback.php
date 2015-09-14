@@ -4,9 +4,7 @@ require ("menuInterno.php");
 <div id="centro">
     <div class="navbar">
         <div class="navbar-inner">
-            <a class="brand" href="#">Chargeback Consolidado</a>
-            <a class="iframe" style="margin-left:600px" href="cadastroChargeback.php" ><i class="btn btn-primary">Cadastrar</i></a>
-            <!--<a class="iframe" style="margin-left:600px"href="cadastroOrgao.php" style="text-decoration:none;"><i class="icon-file"></i></a>-->
+            <a href="cadastroChargeback.php" class="iframe brand" >Chargeback Consolidado <i class="icon-plus"></i></a>
         </div>
     </div>
     <?php
@@ -14,12 +12,11 @@ require ("menuInterno.php");
         $res1 = f_leitura($db, $sql1);
 
         if (empty($res1)) {
-            echo '<br>';
             echo '<h3>Nenhum registro encontrado!</h3>';
         } else if (!empty($res1)){
     ?>
 
-    <table id="tabela_colorbox"  class="table table-striped table-bordered" width="100%">
+    <table id="tabela_colorbox"  class="table table-striped table-bordered">
         <thead>
             <th>&Oacute;rg&atilde;o</th>
             <th>Custo Mensal</th>
@@ -51,15 +48,14 @@ require ("menuInterno.php");
         <tr class="over">
             <td><?php echo $orgao[0]; ?></td>
             <td><?php echo number_format($custo_total, 2, ',', '.'); ?></td>
-            <td style="text-align:center;"><a href="detalhaChargeback.php?idorgao=<?php echo $orgao[1]; ?>" style="text-decoration:none;"><i class="icon-plus"></i></a></td>
+            <td class="minhaTd"><a href="detalhaChargeback.php?idorgao=<?php echo $orgao[1]; ?>" ><i class="icon-eye-open"></i></a></td>
         </tr>
         <?php
-  
             }	//fecha foreach 
 	   ?>
 	   </tbody>
         <?php
-        }// fecha else if
+          }// fecha else if
         ?>
     </table>
 </div>

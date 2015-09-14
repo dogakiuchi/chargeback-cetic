@@ -1,15 +1,7 @@
-<!DOCTYPE html>
-<html>
-<head lang="pt-br">
-<meta charset="utf-8" />
-<title>GoTIC</title>
-<link rel="stylesheet" type="text/css" href="css/estilo.css">
-<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
-<link href="css/jquery.toastmessage-min.css" rel="stylesheet" type="text/css" />
-<script src="js/jquery.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/jquery.mask.min.js"></script>
-<script src="js/jquery.toastmessage.js"></script>
+<?php
+ require('headFormCadastro.php');
+?>
+<!--Scripts exclusivos do formulário-->
 <script src="js/valida-unidade.js"></script>
 </head>
 <body>
@@ -17,43 +9,42 @@
 $id_orgao = $_GET['id'];
 $no_orgao = $_GET['org'];
 ?>
-	<div id="centro_editar">
-	<div class="navbar" style="margin-top:20px;">
+	<div class="formularioModal">
+	<div class="navbar">
     	<div class="navbar-inner">
-        	<h3 class="title_cadastro_portais">Cadastro de Unidades</h3>
+        	<h4>Cadastro de Unidades</h4>
         </div>
     </div>
-	<div id="form_cadastro">
         <form name="form" method="post" action="" onsubmit="return false;">
 		    <input type="hidden" name="acao" id="acao"  value="cadastrar"/>
 			<input type="hidden" name="id_orgao" id="id_orgao"  value="<?php echo $id_orgao;?>"/>
 		    <div class="form-horizontal">
 				<div id="div_orgao" class="control-group">
-                        <label style="font-weight:bold;" class="control-label">Órgão</label>
+                        <label class="control-label">Órgão</label>
                         <div class="controls">
-						<input type="text" readonly="true" name="no_orgao" id="no_orgao"  style="width:550px;" maxlength="100" value="<?php echo $no_orgao; ?>" />
+						<input type="text" readonly="true" name="no_orgao" id="no_orgao" class="input-xxlarge" value="<?php echo $no_orgao; ?>" />
 						</div>
                 </div>
             	<div id="div_nome" class="control-group">
-                        <label style="font-weight:bold;" class="control-label">Nome da Unidade</label>
+                        <label class="control-label">Nome</label>
                         <div class="controls">
-						<input type="text" name="no_unidade" id="no_unidade"  style="width:550px;" maxlength="100" required />
+						<input type="text" name="no_unidade" id="no_unidade" class="input-xxlarge" maxlength="100" required />
 						</div>
                 </div>
                 <div id="div_sigla" class="control-group">
-                        <label style="font-weight:bold;" class="control-label">Sigla</label>
+                        <label class="control-label">Sigla</label>
 						<div class="controls">
-                        <input type="text" name="no_sigla" id="no_sigla" maxlength="30" />
+                        <input type="text" name="no_sigla" id="no_sigla" class="input-small" maxlength="15" />
 						</div>
                 </div>
 				<div id="div_endereco" class="control-group">
-                        <label style="font-weight:bold;" class="control-label">Endereço</label>
+                        <label class="control-label">Endereço</label>
 						<div class="controls">
-                        <input type="text" name="no_endereco" id="no_endereco" maxlength="100" style="width:500px;"/>
+                        <input type="text" name="no_endereco" id="no_endereco" class="input-xxlarge" maxlength="100"/>
 						</div>
                 </div>
 				<div id="div_cidade" class="control-group">
-                         <label style="font-weight:bold;" class="control-label">Cidade</label>				
+                         <label class="control-label">Cidade</label>				
                          <div class="controls">
                             <select  name="no_cidade" id="no_cidade">
 								<option value="-"></option>
@@ -73,16 +64,16 @@ $no_orgao = $_GET['org'];
 						</div>
 				</div>
 				<div id="div_cep" class="control-group">
-                        <label style="font-weight:bold;" class="control-label">CEP</label>
+                        <label class="control-label">CEP</label>
 						<div class="controls">
-                        <input type="text" name="nu_cep" id="nu_cep" maxlength="30" />
+                        <input type="text" name="nu_cep" id="nu_cep" class="input-small" maxlength="9" />
 						</div>
                 </div>
                 <div id="div_status" class="control-group">
-                    	 <label style="font-weight:bold;" class="control-label"> Status</label>
+                    	 <label class="control-label">Status</label>
 						 <div class="controls">
-                         <input type="radio" name="status" id="ativo" value="1" style="margin-top:1px;" checked="checked" /> <span> Ativo </span>
-                         <input type="radio" name="status" id="inativo" value="0" style="margin-top:1px;" /> <span> Inativo </span>
+                         <label class="radio inline"><input type="radio" name="status" id="ativo" value="1" checked="checked" />Ativo</label>
+                         <label class="radio inline"><input type="radio" name="status" id="inativo" value="0" />Inativo</label>
 						 </div>
                 </div>
                 <div class="control-group">
@@ -93,7 +84,6 @@ $no_orgao = $_GET['org'];
                 </div>
             </div>
          </form>
-    </div>
     </div>
  </body>
  </html>	 

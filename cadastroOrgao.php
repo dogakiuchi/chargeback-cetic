@@ -1,14 +1,7 @@
-<!DOCTYPE html>
-<html>
-<head lang="pt-br">
-<meta charset="utf-8" />
-<title>CeTIC</title>
-<link rel="stylesheet" type="text/css" href="css/estilo.css">
-<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
-<link href="css/jquery.toastmessage-min.css" rel="stylesheet" type="text/css" />
-<script src="js/jquery.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/jquery.toastmessage.js"></script>
+<?php
+ require('headFormCadastro.php');
+?>
+<!--Scripts exclusivos do formulário-->
 <script src="js/valida-orgao.js"></script>
 </head>
 <body>
@@ -22,29 +15,29 @@
 		<input type="hidden" name="acao" id="acao"  value="cadastrar"/>
 		    <div class="form-horizontal">
             	<div id="div_nome" class="control-group">
-                        <label style="font-weight:bold;" class="control-label">Nome do Órgão</label>
+                        <label class="control-label">Nome do Órgão</label>
                         <div class="controls">
-						<input type="text" name="no_orgao" id="no_orgao"  style="width:550px;" maxlength="100" required />
+						<input type="text" name="no_orgao" id="no_orgao"  class="input-xxlarge" maxlength="100" required />
 						</div>
                 </div>
                 <div id="div_sigla" class="control-group">
-                        <label style="font-weight:bold;" class="control-label">Sigla</label>
+                        <label class="control-label">Sigla</label>
 						<div class="controls">
-                        <input type="text" name="no_sigla" id="no_sigla" maxlength="30" required />
+                        <input type="text" name="no_sigla" id="no_sigla" class="input-small" maxlength="30" required />
 						</div>
                 </div>
                 <div id="div_tipo" class="control-group">
-                        <label style="font-weight:bold;" class="control-label">Tipo</label>
+                        <label class="control-label">Tipo</label>
 					    <div class="controls">
-                        <input type="radio" name="tipo" id="tp_direta" value="0" style="margin-top:1px;" checked="checked" /><span> Administração Direta </span>
-                        <input type="radio" name="tipo" id="tp_indireta" value="1" style="margin-top:1px;" /><span> Administração Indireta </span> 
+                        <label class="radio inline"><input type="radio" name="tipo" id="tp_direta" value="0" checked="checked" />Administração Direta</label>
+                        <label class="radio inline"><input type="radio" name="tipo" id="tp_indireta" value="1" />Administração Indireta</label> 
 					    </div>					   
                 </div>
                 <div id="div_status" class="control-group">
-                    	 <label style="font-weight:bold;" class="control-label"> Status</label>
+                    	 <label class="control-label"> Status</label>
 						 <div class="controls">
-                         <input type="radio" name="status" id="ativo" value="1" style="margin-top:1px;" checked="checked" /> <span> Ativo </span>
-                         <input type="radio" name="status" id="inativo" value="0" style="margin-top:1px;" /> <span> Inativo </span>
+                         <label class="radio inline"><input type="radio" name="status" id="ativo" value="1" checked="checked" />Ativo</label>
+                         <label class="radio inline"><input type="radio" name="status" id="inativo" value="0" />Inativo</label>
 						 </div>
                 </div>
                 <div class="control-group">

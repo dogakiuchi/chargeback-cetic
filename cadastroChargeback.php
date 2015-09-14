@@ -1,12 +1,7 @@
-<!DOCTYPE html>
-<html>
-<head lang="pt-br">
-<meta charset="utf-8" />
-<title>CeTIC</title>
-<link href="css/bootstrap.css" rel="stylesheet" type="text/css">
-<link href="css/estilo.css" rel="stylesheet" type="text/css" >
-<script src="js/jquery.js"></script>
-<script src="js/bootstrap.min.js"></script>
+<?php
+ require('headFormCadastro.php');
+?>
+<!--Scripts exclusivos do formulário-->
 <script src="js/select-unidade.js"></script>
 <script src="js/select-itemdeconfiguracao.js"></script>
 <script src="js/adiciona-campo-itemdeconfiguracao.js"></script>
@@ -26,7 +21,7 @@
                          <label class="control-label">Órgão</label>
                             <div class="controls">
                             <select name="no_orgao" id="no_orgao" class="meuSelect">
-								<option value=""></option>
+								<option value="">SELECIONE UM ÓRGÃO</option>
                                 <?php
 								    require("banco/conecta.php");
 								    $sql = "SELECT id, no_orgao FROM orgao ORDER BY no_orgao";
@@ -73,7 +68,7 @@
             	           <ul class="form_material controls">
             		          <li >
             		              <select  name="materiais[]" id="materiais" class="meuSelect">
-            			             <option value="-" selected></option>
+            			             <option value="-" selected>SELECIONE UM ITEM E INFORME A QUANTIDADE</option>
             		              </select><input type="text" class="qtd1 maskNum" name="quantidades[]" maxlength="4" style="width:25px;">&nbsp;<i class="icon-plus" id="mais_material"></i>
             		          </li>
             	           </ul>

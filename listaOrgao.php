@@ -2,11 +2,9 @@
 require ("menuInterno.php");
 ?>
 <div id="centro">
-    <div class="navbar" style="margin-top:20px;">
+    <div class="navbar" >
         <div class="navbar-inner">
-            <a class="brand" href="#">Órgãos da Administração Direta e Indireta</a>
-            <a class="iframe" style="margin-left:600px" href="cadastroOrgao.php" style="text-decoration:none;"><i class="btn btn-primary">Cadastrar</i></a>
-            <!--<a class="iframe" style="margin-left:600px"href="cadastroOrgao.php" style="text-decoration:none;"><i class="icon-file"></i></a>-->
+            <a class="iframe brand" href="cadastroOrgao.php" data-toggle="tooltip" title="Incluir Órgão">Órgãos da Administração Direta e Indireta <i class="icon-plus"></i></a>
         </div>
     </div>
     <?php
@@ -21,7 +19,7 @@ require ("menuInterno.php");
         } else if (!empty($res)){
     ?>
 
-    <table id="tabela_colorbox"  class="table table-striped table-bordered" width="100%">
+    <table id="tabela_colorbox"  class="table table-striped table-bordered">
         <thead>
             <th>&Oacute;rg&atilde;o</th>
             <th>Sigla</th>
@@ -40,25 +38,19 @@ require ("menuInterno.php");
         </tfoot>
         <tbody>
         <?php 
-            $count=0;
-            foreach($res as $site) {
+            foreach($res as $orgao) {
         ?>
-        <tr class="over" <?php if ($count==1):?> id="zebra"<?php endif;?>>
-            <td><?php echo $site[0]; ?></td>
-            <td><?php echo $site[1]; ?></td>
-            <td style="text-align:center;"><a href="listaUnidade.php?idorgao=<?php echo $site[2]; ?>" style="text-decoration:none;"><i class="icon-folder-open"></i></a></td>
-            <td style="text-align:center;"><a class="iframe" href="editarOrgao.php?id=<?php echo $site[2]; ?>" style="text-decoration:none;"><i class="icon-edit"></i></a></td>
-            <td style="text-align:center;"><a class="iframe" href="detalhaOrgao.php?id=<?php echo $site[2]; ?>" style="text-decoration:none;"><i class="icon-eye-open"></i></a></td>
-            <td style="text-align:center;">
-				<a href="ajax/ajax_excluir.php?id=<?php echo $site[2];?>&obj=1" onClick="if(confirm('Confirma a exclusão?') == true){this.href;return true;}else{return false;}"><i class="icon-remove"></i></a>
+        <tr>
+            <td><?php echo $orgao[0]; ?></td>
+            <td><?php echo $orgao[1]; ?></td>
+            <td class="minhaTd"><a href="listaUnidade.php?idorgao=<?php echo $orgao[2]; ?>" data-toggle="tooltip" title="Visualizar Unidades"><i class="icon-folder-open"></i></a></td>
+            <td class="minhaTd"><a href="editarOrgao.php?id=<?php echo $orgao[2]; ?>" class="iframe" data-toggle="tooltip" title="Editar Órgão"><i class="icon-edit"></i></a></td>
+            <td class="minhaTd"><a href="detalhaOrgao.php?id=<?php echo $orgao[2]; ?>"class="iframe" data-toggle="tooltip" title="Detalhar Órgão"><i class="icon-eye-open"></i></a></td>
+            <td class="minhaTd">
+				<a href="ajax/ajax_excluir.php?id=<?php echo $site[2];?>&obj=1" data-toggle="tooltip" title="Excluir Órgão" onClick="if(confirm('Confirma a exclusão?') == true){this.href;return true;}else{return false;}"><i class="icon-remove"></i></a>
 			</td>
         </tr>
         <?php 
-            if ($count==1){ 
-                $count=0;
-            } else {
-                $count++;
-            }
   
             }	//fecha foreach 
 	   ?>
