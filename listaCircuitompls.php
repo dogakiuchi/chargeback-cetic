@@ -18,13 +18,14 @@ require ("menuInterno.php");
 	?>
         <table id="tabela_colorbox"  class="table table-striped table-bordered">
             <thead>
-                <th>Lote</th>
+                <th>Status</th>
                 <th>Órgão</th>
                 <th>Circuito</th>
                 <th>IP LAN</th>
-                <th>Máscara</th>
-                <th>IP WAN</th>
+                <th>WAN Cliente</th>
                 <th>Designação</th>
+                <th>Utilização</th> 
+                <th>Movimentação</th>
                 <th>Editar</th>
                 <th>Detalhar</th>
                 <th>Excluir</th>
@@ -34,15 +35,16 @@ require ("menuInterno.php");
                     foreach($res as $circuito) {
                 ?>
                 <tr class="over">
-                    <td class="minhaTd"><?php echo $circuito[1]; ?></td>
-                    <td><?php echo $circuito[13]; ?></td>
-                    <td><?php echo $circuito[14]; ?></td>
+                    <td class="minhaTd"><?php if($circuito[13]==1){echo "Ativo";}else{echo "Inativo";} ?></td>
+                    <td><?php echo $circuito[20]; ?></td>
+                    <td><?php echo $circuito[21]; ?></td>
                     <td><?php echo $circuito[2]; ?></td>
-                    <td><?php echo $circuito[3]; ?></td>
                     <td><?php echo $circuito[4]; ?></td>
                     <td><?php echo $circuito[5]; ?></td>
+                    <td class="minhaTd"><a href="#" class="iframe" data-toggle="tooltip" title="Editar Circuito"><i class="icon-tasks"></i></a></td>
+                    <td class="minhaTd"><a href="#" class="iframe" data-toggle="tooltip" title="Editar Circuito"><i class="icon-retweet"></i></a></td>
                     <td class="minhaTd"><a href="editarCircuitompls.php?id=<?php echo $circuito[0]; ?>" class="iframe" data-toggle="tooltip" title="Editar Circuito"><i class="icon-edit"></i></a></td>
-                    <td class="minhaTd"><a href="detalhaCircuitompls.php?id=<?php echo $circuito[0]; ?>" class="iframe" data-toggle="tooltip" title="Detalhar Circuito"><i class="icon-eye-open"></i></a></td>
+                    <td class="minhaTd"><a href="detalhaCircuitomplsTab1.php?id=<?php echo $circuito[0]; ?>" class="iframe" data-toggle="tooltip" title="Detalhar Circuito"><i class="icon-eye-open"></i></a></td>
                     <td class="minhaTd"><a href="ajax/ajax_excluir.php?id=<?php echo $circuito[0];?>&obj=6" data-toggle="tooltip" title="Excluir Circuito" onClick="if(confirm('Confirma a exclusão?') == true){this.href;return true;}else{return false;}"><i class="icon-remove"></i></a></td>
                 </tr>
                 <?php 

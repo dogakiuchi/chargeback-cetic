@@ -222,25 +222,51 @@ if (isset($_POST['acao']) && $_POST['acao'] == 'editar_chargeback'){
 if (isset($_POST['acao']) && $_POST['acao'] == 'editar_circuitompls'){
     $ID             = $_POST['ID'];
 	$NU_LOTE        = $_POST['NU_LOTE'];
-	$NU_IPLAN       = $_POST['NU_IPLAN'];
+	$WAN_CLIENTE    = $_POST['WAN_CLIENTE'];
+    $WAN_OPERADORA  = $_POST['WAN_OPERADORA'];
     $NU_MASCARA     = $_POST['NU_MASCARA'];
-	$NU_IPWAN       = $_POST['NU_IPWAN'];
+	$NU_IPLAN       = $_POST['NU_IPLAN'];
 	$NO_DESIGNACAO  = $_POST['NO_DESIGNACAO'];
     $ID_RESPONSAVEL = $_POST['ID_RESPONSAVEL'];
     $ID_ITEM        = $_POST['ID_ITEM'];
+    $NU_USUARIOS    = $_POST['NU_USUARIOS'];
+    $DT_HOMOLOGACAO = $_POST['DT_HOMOLOGACAO'];
+    $DT_INSTALACAO  = $_POST['DT_INSTALACAO'];
+    $DS_OBSERVACAO  = $_POST['DS_OBSERVACAO'];
+    $DS_FAIXA  = $_POST['DS_FAIXA'];
+    $STATUS         = $_POST['status'];
+    
+    if($DT_HOMOLOGACAO!= ''){
+		list($dia, $mes, $ano) = explode("/", $DT_HOMOLOGACAO);
+		$DT_HOMOLOGACAO = $ano."-".$mes."-".$dia;
+		//$DT_FIM = strtotime($DT_FIM);
+	}
+    if($DT_INSTALACAO!= ''){
+		list($dia, $mes, $ano) = explode("/", $DT_INSTALACAO);
+		$DT_INSTALACAO = $ano."-".$mes."-".$dia;
+		//$DT_FIM = strtotime($DT_FIM);
+	}
 
 	$sql = "UPDATE `circuitompls`
             SET
 				`nu_lote` = '".$NU_LOTE."',
                 `ip_lan` = '".$NU_IPLAN."',
                 `ip_mascara` = '".$NU_MASCARA."',
-                `ip_wan` = '".$NU_IPWAN."',
+                `wan_cliente` = '".$WAN_CLIENTE."',
                 `no_designacao` = '".$NO_DESIGNACAO."',
+                `wan_operadora` = '".$WAN_OPERADORA."',
+                `nu_usuarios` = '".$NU_USUARIOS."',
+                `dt_homologacao` = '".$DT_HOMOLOGACAO."',
+                `dt_instalacao` = '".$DT_INSTALACAO."',
+                `ds_observacao` = '".$DS_OBSERVACAO."',
                 `responsavel_id` = '".$ID_RESPONSAVEL."',
                 `itemdeconfiguracao_id` = '".$ID_ITEM."',
+                `status` = '".$STATUS."',
+                `nu_dhcp` = '".$DS_FAIXA."',
 				`dt_atualizacao` = now()
 			WHERE `id` = ".$ID."";
-			
+	//echo $sql;
+    //exit;
     /*$var = Array(array(
 			'resultado' => $sql
 		));

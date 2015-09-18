@@ -34,7 +34,7 @@ $no_orgao = $_GET['org'];
                 <div id="div_sigla" class="control-group">
                         <label class="control-label">Sigla</label>
 						<div class="controls">
-                        <input type="text" name="no_sigla" id="no_sigla" class="input-small" maxlength="15" />
+                        <input type="text" name="no_sigla" id="no_sigla" class="input-small" maxlength="45" />
 						</div>
                 </div>
 				<div id="div_endereco" class="control-group">

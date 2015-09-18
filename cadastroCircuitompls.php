@@ -8,14 +8,10 @@
 </head>
 <body>
     <div class="formularioModal">
-    <div class="navbar">
-        <div class="navbar-inner">
-            <h4>Cadastro Circuito MPLS</h4>
-        </div>
-    </div>
-	<div>
+      <div class="row-fluid">
         <form name="form" method="post" id="charge" action="" onsubmit="return false;" class="form-horizontal">
 		    <input type="hidden" name="acao" id="acao"  value="cadastrar"/>
+            <div class="span12">
                 <div id="div_orgao" class="control-group">
                          <label class="control-label">Órgão</label>
                             <div class="controls">
@@ -50,12 +46,14 @@
 								    <option value="-">SELECIONE UM RESPONSÁVEL</option>
                                 </select>
                             </div>
-                </div>
-                <div id="div_categoria" class="control-group">
+                    </div>                      
+                <div class="row-fluid">
+                    <div class="span5">
+                      <div id="div_categoria" class="control-group">
                          <label class="control-label">Item</label>
                             <div class="controls">
-                                <select name="no_item" id="no_item" class="input-large">
-								<option value="-">SELECIONE UM ITEM</option>
+                                <select name="no_item" id="no_item" class="input-medium">
+								<option value="-">CIRCUITO</option>
                                 <?php
 								    $sql1 = "SELECT id, no_item FROM itemdeconfiguracao WHERE categoriaitem_id = 4 AND no_item LIKE '%MPLS%' ORDER BY no_item";
 				                    $result1 = f_leitura($db,$sql1);
@@ -68,38 +66,87 @@
 								?>
                                 </select>
                             </div>
-				</div>
-                <div id="div_lote" class="control-group">
+				      </div>
+                      <div id="div_lote" class="control-group">
                         <label  class="control-label">Lote</label>
 						<div class="controls">
-                            <input type="number" name="nu_lote" id="nu_lote" min="1" max="5"/>
+                            <input type="number" name="nu_lote" id="nu_lote" class="input-mini" min="0" max="5" value="0"/>
 						</div>
-                </div>
-                <div id="div_iplan" class="control-group">
-                        <label  class="control-label">IP LAN</label>
+                      </div>
+                     <div id="div_usuarios" class="control-group">
+                        <label  class="control-label">Usuários</label>
 						<div class="controls">
-                        <input type="text" name="nu_iplan" id="nu_iplan" maxlength="15" />
+                        <input type="number" name="nu_usuarios" id="nu_usuarios" class="input-mini" maxlength="15" value="0"/>
 						</div>
-                </div>
-                <div id="div_mascara" class="control-group">
-                        <label  class="control-label">Máscara</label>
+                      </div>
+                      <div id="div_instalacao" class="control-group">
+                        <label  class="control-label">Instalação</label>
 						<div class="controls">
-                        <input type="text" name="nu_mascara" id="nu_mascara" maxlength="15" />
+                        <input type="text" name="dt_instalacao" id="dt_instalacao" class="data_ui input-small" maxlength="30" />
 						</div>
-                </div>
-                <div id="div_ipwan" class="control-group">
-                        <label  class="control-label">IP WAN</label>
+                      </div>
+                      <div id="div_homologacao" class="control-group">
+                        <label  class="control-label">Homologação</label>
 						<div class="controls">
-                        <input type="text" name="nu_ipwan" id="nu_ipwan" maxlength="15" />
+                        <input type="text" name="dt_homologacao" id="dt_homologacao" class="data_ui input-small" maxlength="30" />
 						</div>
-                </div>
-                <div id="div_designacao" class="control-group">
+                      </div>
+                    <div id="div_designacao" class="control-group">
                         <label  class="control-label">Designação</label>
 						<div class="controls">
-                        <input type="text" name="no_designacao" id="no_designacao" maxlength="30" />
+                        <input type="text" name="no_designacao" id="no_designacao" class="input-medium" maxlength="30" />
 						</div>
-                </div>
-                
+                    </div>
+                    </div><!--Fim Span 5-->
+                    <div class="span7">
+                         <div id="div_iplan" class="control-group">
+                        <label  class="control-label">IP LAN</label>
+						<div class="controls">
+                        <input type="text" name="nu_iplan" id="nu_iplan" class="input-medium" maxlength="15" />
+						</div>
+                      </div>
+                      <div id="div_mascara" class="control-group">
+                        <label  class="control-label">Máscara</label>
+						<div class="controls">
+                        <input type="text" name="nu_mascara" id="nu_mascara" class="input-medium" maxlength="15" />
+						</div>
+                      </div>
+                      <div id="div_ipwan" class="control-group">
+                        <label  class="control-label">WAN Cliente</label>
+						<div class="controls">
+                        <input type="text" name="wan_cliente" id="wan_cliente" class="input-medium" maxlength="15" />
+						</div>
+                      </div>
+                    <div id="div_wan" class="control-group">
+                        <label  class="control-label">WAN Operadora</label>
+						<div class="controls">
+                        <input type="text" name="wan_operadora" id="wan_operadora" class="input-medium" maxlength="15" />
+						</div>
+                      </div>
+                    <div id="div_faixa" class="control-group">
+                        <label  class="control-label">Faixa DHCP</label>
+						<div class="controls">
+                        <input type="text" name="ds_faixa" id="ds_faixa" class="input-large" maxlength="45" />
+						</div>
+                      </div>
+                    <div id="div_status" class="control-group">
+                    	 <label class="control-label"> Status</label>
+						 <div class="controls">
+                         <label class="radio inline"><input type="radio" name="status" id="ativo" value="1" checked="checked" />Ativo</label>
+                         <label class="radio inline"><input type="radio" name="status" id="inativo" value="0" />Inativo</label>
+						 </div>
+                   </div>
+                    </div><!--Fim Span 7-->
+                    <div class="row-fluid"></div>
+                    <div class="span12">
+                      <div id="div_obs" class="control-group">
+                        <label class="control-label">Observação</label>
+						<div class="controls">
+                        <textarea name="ds_observacao" id="ds_observacao" class="input-xxlarge" rows="1" cols="80"></textarea>
+						</div>
+                      </div>
+                    </div>
+                    </div
                     <div class="control-group">
                         <div class="controls">
                             <input type="hidden" class="hiddenidcategoria" value="4"/>
@@ -107,8 +154,10 @@
                             <input type="button" value="VOLTAR" id="voltar" class="btn" onClick="parent.$.fn.colorbox.close();" />
                         </div>
                     </div>
+                    </div>
+                </div><!--Fim Span 12-->
          </form>
-    </div>
+        </div>
 </div>
 </body>
 </html>	

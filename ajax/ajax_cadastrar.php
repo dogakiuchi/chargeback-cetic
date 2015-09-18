@@ -290,44 +290,91 @@ if (isset($_POST['acao']) && $_POST['acao'] == 'cadastrar_circuitompls'){
 	$NU_LOTE        = $_POST['NU_LOTE'];
 	$NU_IPLAN       = $_POST['NU_IPLAN'];
     $NU_MASCARA     = $_POST['NU_MASCARA'];
-	$NU_IPWAN       = $_POST['NU_IPWAN'];
+	$WAN_CLIENTE    = $_POST['WAN_CLIENTE'];
+    $WAN_OPERADORA  = $_POST['WAN_OPERADORA'];
 	$NO_DESIGNACAO  = $_POST['NO_DESIGNACAO'];
+    $DS_OBSERVACAO  = $_POST['DS_OBSERVACAO'];
 	$ID_ORGAO       = $_POST['ID_ORGAO'];
     $ID_UNIDADE     = $_POST['ID_UNIDADE'];
     $ID_RESPONSAVEL = $_POST['ID_RESPONSAVEL'];
     $ID_CATEGORIA   = $_POST['ID_CATEGORIA'];
     $ID_ITEM        = $_POST['ID_ITEM'];
+    $STATUS         = $_POST['status'];
+    $DS_FAIXA       = $_POST['DS_FAIXA'];
+    $NU_USUARIOS    = (isset($_POST['NU_USUARIOS'])) ? $_POST['NU_USUARIOS'] : 0;
+    $DT_HOMOLOGACAO = $_POST['DT_HOMOLOGACAO'];
+    $DT_INSTALACAO  = $_POST['DT_INSTALACAO'];
 
-		
+    $sql_ver_iplan = "SELECT ip_lan FROM circuitompls WHERE ip_lan LIKE '".$NU_IPLAN."'";
+	$rows_ver_iplan = f_rows($db, $sql_ver_iplan);
+
+	if ($rows_ver_iplan > 0){
+		$var = Array(array(
+			'resultado' => 1
+		));	
+		echo json_encode($var);
+		exit;
+	}
+    if($DT_HOMOLOGACAO!= ''){
+		list($dia, $mes, $ano) = explode("/", $DT_HOMOLOGACAO);
+		$DT_HOMOLOGACAO = $ano."-".$mes."-".$dia;
+		//$DT_FIM = strtotime($DT_FIM);
+	}else{
+     $DT_HOMOLOGACAO = date('Y-m-d');   
+    }
+    if($DT_INSTALACAO!= ''){
+		list($dia, $mes, $ano) = explode("/", $DT_INSTALACAO);
+		$DT_INSTALACAO = $ano."-".$mes."-".$dia;
+		//$DT_FIM = strtotime($DT_FIM);
+	}else{
+     $DT_INSTALACAO = date('Y-m-d');   
+    }
+    
 	$sql = "INSERT INTO `circuitompls`
 					(`nu_lote`,
 					`ip_lan`,
                     `ip_mascara`,
-					`ip_wan`,
+					`wan_cliente`,
+                    `wan_operadora`,
 					`no_designacao`,
 					`orgao_id`,
                     `unidade_id`,
                     `responsavel_id`,
                     `categoriaitem_id`,
                     `itemdeconfiguracao_id`,
+                    `ds_observacao`,
+                    `status`,
+                    `nu_usuarios`,
+                    `dt_homologacao`,
+                    `dt_instalacao`,
+                    `nu_dhcp`,
 					`dt_cadastro`)
 				VALUES
 					('".$NU_LOTE."',
 					 '".$NU_IPLAN."',
                      '".$NU_MASCARA."',
-					 '".$NU_IPWAN."',
+					 '".$WAN_CLIENTE."',
+                     '".$WAN_OPERADORA."',
 					 '".$NO_DESIGNACAO."',
 					 '".$ID_ORGAO."',
                      '".$ID_UNIDADE."',
                      '".$ID_RESPONSAVEL."',
                      '".$ID_CATEGORIA."',
                      '".$ID_ITEM."',
+                     '".$DS_OBSERVACAO."',
+                     '".$STATUS."',
+                     '".$NU_USUARIOS."',
+                     '".$DT_HOMOLOGACAO."',
+                     '".$DT_INSTALACAO."',
+                     '".$DS_FAIXA."',
 					now());";
 					
 	/*$var = Array(array('resultado' => $sql));
 	echo json_encode($var);
 	exit;*/
-	
+	echo $sql;
+    exit;
+    
 	f_escrita($db, $sql);
 		
 	$var = Array(array('resultado' => 0));

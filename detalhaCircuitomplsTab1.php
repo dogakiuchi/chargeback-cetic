@@ -25,7 +25,12 @@
     		<h4>Detalhamento Circuito MPLS</h4>
     	</div>
 		</div>
-    		<table class="table table-striped table-bordered">
+        <ul class="nav nav-tabs">
+          <li class="active"><a href="#">Dados do Circuito</a></li>
+          <li><a href="detalhaCircuitomplsTab2.php?id=<?php echo $id;?>">Endereço</a></li>
+          <li><a href="detalhaCircuitomplsTab3.php?id=<?php echo $id;?>">Contato</a></li>
+        </ul>
+    		  <table class="table table-striped table-bordered">
             	<tbody>
                         <tr>
                         	<td class="minhaTd">Lote</td>
@@ -33,43 +38,11 @@
                         </tr>
                         <tr>
                         	<td class="minhaTd">Orgão</td>
-                            <td><?php echo $res[0][13]; ?></td>
-                        </tr>
-                        <tr>
-                        	<td class="minhaTd">Unidade</td>
-                            <td><?php echo $res[0][14]; ?></td>
-                        </tr>
-                        <tr>
-                        	<td class="minhaTd">Cidade</td>
-                            <td><?php echo $res[0][23];?></td>
+                            <td><?php echo $res[0][19]; ?></td>
                         </tr>
                          <tr>
                         	<td class="minhaTd">Circuito</td>
-                            <td><?php echo $res[0][15];?></td>
-                        </tr>
-                        <tr>
-                        	<td class="minhaTd">Endereço</td>
-                            <td><?php echo $res[0][17]; ?></td>
-                        </tr>
-                        <tr>
-                        	<td class="minhaTd">CEP</td>
-                            <td><?php echo $res[0][18]; ?></td>
-                        </tr>
-                        <tr>
-                        	<td class="minhaTd">Responsável</td>
-                            <td><?php echo $res[0][16]; ?></td>
-                        </tr>
-                        <tr>
-                        	<td class="minhaTd">Telefone</td>
-                            <td><?php echo $res[0][20]; ?></td>
-                        </tr>
-                        <tr>
-                        	<td class="minhaTd">Celular</td>
-                            <td><?php echo $res[0][22]; ?></td>
-                        </tr>
-                        <tr>
-                        	<td class="minhaTd">E-mail</td>
-                            <td><?php echo $res[0][21]; ?></td>
+                            <td><?php echo $res[0][21];?></td>
                         </tr>
                         <tr>
                         	<td class="minhaTd">Data de cadastro</td>
@@ -80,10 +53,9 @@
                             <td><?php if($res[0][12]==""){echo "NUNCA ATUALIZADO";}else{echo $res[0][12];} ?></td>
                         </tr>
                 </tbody>
-            </table>
+              </table>
      <?php } else { ?>
      			<center> <h3>Erro na seleção</h3> </center>
      <?php } ?>
-
 </body>
 </html>
