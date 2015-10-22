@@ -42,7 +42,7 @@
                   <a class="dropdown-toggle" data-toggle="dropdown" href="#">Servidores <span class="caret"></span></a>
                   <ul class="dropdown-menu">
                     <li><a href="#">Físicos</a></li>
-                    <li><a href="#">VMs</a></li>
+                    <li><a href="listaServidorVM.php">VMs</a></li>
                   </ul>
                 </li>
                 <li class="dropdown">

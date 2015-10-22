@@ -33,20 +33,20 @@
     		<table class="table table-striped table-bordered">
             	<tbody>
                         <tr>
-                        	<td class="minhaTd">Unidade</td>
-                            <td><?php echo $res[0][20]; ?></td>
+                        	<td class="detalhaTd">Unidade</td>
+                            <td><?php echo $res[0][21]; ?></td>
                         </tr>
                         <tr>
-                        	<td class="minhaTd">Endereço</td>
-                            <td><?php echo $res[0][23]; ?></td>
-                        </tr>
-                        <tr>
-                        	<td class="minhaTd">Cidade</td>
-                            <td><?php echo $res[0][29];?></td>
-                        </tr>
-                        <tr>
-                        	<td class="minhaTd">CEP</td>
+                        	<td class="detalhaTd">Endereço</td>
                             <td><?php echo $res[0][24]; ?></td>
+                        </tr>
+                        <tr>
+                        	<td class="detalhaTd">Cidade</td>
+                            <td><?php echo $res[0][30];?></td>
+                        </tr>
+                        <tr>
+                        	<td class="detalhaTd">CEP</td>
+                            <td><?php echo $res[0][25]; ?></td>
                         </tr>
                         <tr>
                 </tbody>

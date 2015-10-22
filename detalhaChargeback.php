@@ -7,11 +7,9 @@ require ("menuInterno.php");
         $sql1 = "SELECT no_orgao FROM orgao WHERE id=".$id_orgao;
         $orgao = f_leitura_campo($db, $sql1);
     ?>
-    <br/>
     <div class="navbar">
         <div class="navbar-inner">
-            <a class="brand" href="#"><?php echo $orgao; ?></a>
-            <a class="iframe" style="margin-left:350px" href="cadastroChargeback.php"><i class="btn btn-primary">Cadastro Chargeback</i></a>
+            <a href="cadastroChargeback.php" class="iframe brand"><?php echo $orgao; ?>&nbsp;<i class="icon-plus"></i></a>
     	</div>
     </div>
 	<?php

@@ -69,7 +69,7 @@
             		          <li >
             		              <select  name="materiais[]" id="materiais" class="meuSelect">
             			             <option value="-" selected>SELECIONE UM ITEM E INFORME A QUANTIDADE</option>
-            		              </select><input type="text" class="qtd1 maskNum" name="quantidades[]" maxlength="4" style="width:25px;">&nbsp;<i class="icon-plus" id="mais_material"></i>
+            		              </select><input type="text" class="qtd1 maskNum" name="quantidades[]" maxlength="6" style="width:25px;">&nbsp;<i class="icon-plus" id="mais_material"></i>
             		          </li>
             	           </ul>
                             

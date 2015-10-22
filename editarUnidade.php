@@ -51,7 +51,7 @@
                 <div id="div_sigla" class="control-group">
                     <label class="control-label">Sigla</label>
 					<div class="controls">
-                    <input type="text" name="no_sigla" id="no_sigla" class="input-medium" maxlength="15" value="<?php echo $res[0][2]; ?>"  />
+                    <input type="text" name="no_sigla" id="no_sigla" class="input-medium" maxlength="45" value="<?php echo $res[0][2]; ?>"  />
                     </div>
                 </div>
                 <div id="div_endereco" class="control-group">

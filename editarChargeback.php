@@ -45,7 +45,7 @@
                 <div class="control-group">
                         <label class="control-label">Quantidade</label>
                         <div class="controls">
-                        <input type="text" class="qtd1 maskNum" name="qtd"  id="qtd" maxlength="4" style="width:25px;" value="<?php echo $result[0][0];?>">
+                        <input type="text" class="qtd1 maskNum" name="qtd"  id="qtd" maxlength="6" style="width:35px;" value="<?php echo $result[0][0];?>">
                         </div>
                 </div>
 

@@ -1,8 +1,6 @@
 $(function () {
     //alert("passou");
-    var acao = null,
-        usuarios = null,
-        status = null;
+    var acao = null;
     $("#nu_iplan").mask("099.099.099.099");
     $("#nu_mascara").mask("099.099.099.099");
     $("#wan_cliente").mask("099.099.099.099");
@@ -22,55 +20,56 @@ $(function () {
 	changeMonth: true,
 	changeYear: true
 	});
-    $("#salvar_circuitompls").click(function () {
+    $("#salvar_movimentacao").click(function () {
 		    //alert("passou");
         if ($("#nu_iplan").val() === "" || $("#nu_iplan").val() === null) {
             $("#div_iplan").addClass("error");
             $("#nu_iplan").addClass("inputError");
             return false;
         } else if ($("#acao").val() === "cadastrar") {
-            acao = 'cadastrar_circuitompls';
+            acao = 'cadastrar_movimentacao';
 					//alert("passou");
-            if (document.getElementById("ativo").checked === true) {status = 1;} else { status = 0;}
             $.ajax({
                 url: "ajax/ajax_cadastrar.php",
                 type: 'POST',
                 data: {
-                    NU_LOTE: $("#nu_lote").val(),
 				    NU_IPLAN: $("#nu_iplan").val(),
 				    NU_MASCARA: $("#nu_mascara").val(),
 				    WAN_CLIENTE: $("#wan_cliente").val(),
                     WAN_OPERADORA: $("#wan_operadora").val(),
 				    NO_DESIGNACAO: $("#no_designacao").val(),
                     DS_OBSERVACAO: $("#ds_observacao").val(),
-                    DS_FAIXA: $("#ds_faixa").val(),
 				    ID_ORGAO: $("#no_orgao").val(),
                     ID_UNIDADE: $("#no_unidade").val(),
                     ID_RESPONSAVEL: $("#no_responsavel").val(),
-                    ID_CATEGORIA: $(".hiddenidcategoria").val(),
                     ID_ITEM: $("#no_item").val(),
-                    NU_USUARIOS: $("#nu_usuarios").val(),
                     DT_HOMOLOGACAO: $("#dt_homologacao").val(),
                     DT_INSTALACAO: $("#dt_instalacao").val(),
-                    status: status,
+                    OLD_UNIDADE: $("#old_unidade_id").val(),
+                    OLD_ORGAO: $("#old_orgao_id").val(),
+                    OLD_RESPONSAVEL: $("#old_responsavel_id").val(),
+                    OLD_CATEGORIA: $("#old_categoriaitem_id").val(),
+                    OLD_ITEMDECONFIGURACAO: $("#old_itemdeconfiguracao_id").val(),
+                    OLD_IPLAN: $("#old_ip_lan").val(),
+                    OLD_IPMASCARA: $("#old_ip_mascara").val(),
+                    OLD_WANCLIENTE: $("#old_wan_cliente").val(),
+                    OLD_WANOPERADORA: $("#old_wan_operadora").val(),
+                    OLD_DESIGNACAO: $("#old_no_designacao").val(),
+                    OLD_DTINSTALACAO: $("#old_dt_instalacao").val(),
+                    OLD_DTHOMOLOGACAO: $("#old_dt_homologacao").val(),
+                    ID: $("#id").val(),
 				    acao: acao
 				},
 				dataType: 'json',
 				success: function (data) {
 				    var resultado = data[0].resultado;
 							//$().toastmessage("showErrorToast", resultado);
-				    if (resultado === 1) {
+				    if (resultado == 1) {
 				        $().toastmessage("showErrorToast", "Erro! IP LAN já existe");
 				        return false;
                     }
-				    if (resultado === 0) {
-				        $().toastmessage("showSuccessToast", "Cadastro efetuado!");
-				        $("input").not("#salvar_circuitompls, #voltar").val("");
-                        $('#no_orgao').find('option[value="-"]').prop("selected", true);
-                        $('#no_unidade').find('option[value="-"]').prop("selected", true);
-                        $('#no_responsavel').find('option[value="-"]').prop("selected", true);
-                        $('#no_item').find('option[value="-"]').prop("selected", true);
-                        
+				    if (resultado == 0) {
+				        $().toastmessage("showSuccessToast", "Cadastro efetuado!");                    
 				    }
 				}
             });

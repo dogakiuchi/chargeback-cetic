@@ -20,7 +20,7 @@ $orgao = f_leitura_campo($db, $sql1);
             echo '<h4 style="text-align:center;">Não existem unidades cadastradas!</h4>';
 	   } else if (!empty($res)){
 	?>
-        <table id="tabela_orgao"  class="table table-striped table-bordered">
+        <table id="tabela_colorbox"   class="table table-striped table-bordered">
             <thead>
                 <th>Unidade</th>
                 <th>Sigla</th>

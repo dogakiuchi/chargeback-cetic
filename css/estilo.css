@@ -28,6 +28,11 @@ label{
    font-weight: bold;
 }
 
+.detalhaTd{
+   text-align:right !important;
+   font-weight: bold;
+}
+
 .menuInferior{
     text-align: center;
     margin-top: 10px;
