@@ -391,19 +391,30 @@ if (isset($_POST['acao']) && $_POST['acao'] == 'cadastrar_movimentacao'){
     $WAN_OPERADORA  = ($_POST['WAN_OPERADORA'] != '')  ? $_POST['WAN_OPERADORA'] : $vazio;
 	$NO_DESIGNACAO  = ($_POST['NO_DESIGNACAO'] != '')  ? $_POST['NO_DESIGNACAO'] : $vazio;
     $DS_OBSERVACAO  = $_POST['DS_OBSERVACAO'];
-	$ID_ORGAO       = $_POST['ID_ORGAO'];
     $ID_UNIDADE     = $_POST['ID_UNIDADE'];
     $ID_RESPONSAVEL = $_POST['ID_RESPONSAVEL'];
-    $ID_CATEGORIA   = $_POST['ID_CATEGORIA'];
     $ID_ITEM        = $_POST['ID_ITEM'];
     $DT_HOMOLOGACAO = $_POST['DT_HOMOLOGACAO'];
     $DT_INSTALACAO  = $_POST['DT_INSTALACAO'];
     
+    if($DT_HOMOLOGACAO!= ''){
+		list($dia, $mes, $ano) = explode("/", $DT_HOMOLOGACAO);
+		$DT_HOMOLOGACAO = $ano."-".$mes."-".$dia;
+		//$DT_FIM = strtotime($DT_FIM);
+	}else{
+     $DT_HOMOLOGACAO = "2012-01-01";   
+    }
+    if($DT_INSTALACAO!= ''){
+		list($dia, $mes, $ano) = explode("/", $DT_INSTALACAO);
+		$DT_INSTALACAO = $ano."-".$mes."-".$dia;
+		//$DT_FIM = strtotime($DT_FIM);
+	}else{
+     $DT_INSTALACAO = "2012-01-01";   
+    }
+    
     $ID_CIRCUITO            = $_POST['ID'];
     $OLD_UNIDADE            = $_POST['OLD_UNIDADE'];
-    $OLD_ORGAO              = $_POST['OLD_ORGAO'];
     $OLD_RESPONSAVEL        = $_POST['OLD_RESPONSAVEL'];
-    $OLD_CATEGORIA          = $_POST['OLD_CATEGORIA'];
     $OLD_ITEMDECONFIGURACAO = $_POST['OLD_ITEMDECONFIGURACAO'];
     $OLD_IPLAN              = $_POST['OLD_IPLAN'];
     $OLD_IPMASCARA          = $_POST['OLD_IPMASCARA'];
@@ -413,13 +424,11 @@ if (isset($_POST['acao']) && $_POST['acao'] == 'cadastrar_movimentacao'){
     $OLD_DTINSTALACAO       = $_POST['OLD_DTINSTALACAO'];
     $OLD_DTHOMOLOGACAO      = $_POST['OLD_DTHOMOLOGACAO'];
 
-    $sql = "INSERT INTO `movimentacaocircuito`
+    $sql1 = "INSERT INTO `movimentacaocircuito`
 					(`circuitompls_id`,
 					`itemdeconfiguracao_id`,
-                    `categoriaitem_id`,
 					`responsavel_id`,
                     `unidade_id`,
-					`orgao_id`,
 					`ip_lan`,
                     `ip_mascara`,
                     `wan_cliente`,
@@ -432,10 +441,8 @@ if (isset($_POST['acao']) && $_POST['acao'] == 'cadastrar_movimentacao'){
 				VALUES
 					('".$ID_CIRCUITO."',
                      '".$OLD_ITEMDECONFIGURACAO."',
-                     '".$OLD_CATEGORIA."',
                      '".$OLD_RESPONSAVEL."',
 					 '".$OLD_UNIDADE."',
-                     '".$OLD_ORGAO."',
 					 '".$OLD_IPLAN."',
                      '".$OLD_IPMASCARA."',
                      '".$OLD_WANCLIENTE."',
@@ -445,71 +452,29 @@ if (isset($_POST['acao']) && $_POST['acao'] == 'cadastrar_movimentacao'){
                      '".$OLD_DTHOMOLOGACAO."',
                      '".$OLD_DTINSTALACAO."',
 					now());";
-    	f_escrita($db, $sql);
-		
+    f_escrita($db, $sql1);
+	
+    $sql2 = "UPDATE `circuitompls`
+            SET
+                `ip_lan` = '".$NU_IPLAN."',
+                `ip_mascara` = '".$NU_MASCARA."',
+                `wan_cliente` = '".$WAN_CLIENTE."',
+                `no_designacao` = '".$NO_DESIGNACAO."',
+                `wan_operadora` = '".$WAN_OPERADORA."',
+                `dt_homologacao` = '".$DT_HOMOLOGACAO."',
+                `dt_instalacao` = '".$DT_INSTALACAO."',
+                `responsavel_id` = '".$ID_RESPONSAVEL."',
+                `itemdeconfiguracao_id` = '".$ID_ITEM."',
+                `unidade_id` = '".$ID_UNIDADE."',
+				`dt_atualizacao` = now()
+			WHERE `id` = ".$ID_CIRCUITO."";
+    f_escrita($db, $sql2);
+
+    
 	$var = Array(array('resultado' => 0));
 	echo json_encode($var);
 	exit;
 
-    if($DT_HOMOLOGACAO!= ''){
-		list($dia, $mes, $ano) = explode("/", $DT_HOMOLOGACAO);
-		$DT_HOMOLOGACAO = $ano."-".$mes."-".$dia;
-		//$DT_FIM = strtotime($DT_FIM);
-	}else{
-     $DT_HOMOLOGACAO = date('Y-m-d');   
-    }
-    if($DT_INSTALACAO!= ''){
-		list($dia, $mes, $ano) = explode("/", $DT_INSTALACAO);
-		$DT_INSTALACAO = $ano."-".$mes."-".$dia;
-		//$DT_FIM = strtotime($DT_FIM);
-	}else{
-     $DT_INSTALACAO = date('Y-m-d');   
-    }
-    
-/*	$sql = "INSERT INTO `circuitompls`
-					(`nu_lote`,
-					`ip_lan`,
-                    `ip_mascara`,
-					`wan_cliente`,
-                    `wan_operadora`,
-					`no_designacao`,
-					`orgao_id`,
-                    `unidade_id`,
-                    `responsavel_id`,
-                    `categoriaitem_id`,
-                    `itemdeconfiguracao_id`,
-                    `ds_observacao`,
-                    `status`,
-                    `nu_usuarios`,
-                    `dt_homologacao`,
-                    `dt_instalacao`,
-                    `nu_dhcp`,
-					`dt_cadastro`)
-				VALUES
-					('".$NU_LOTE."',
-					 '".$NU_IPLAN."',
-                     '".$NU_MASCARA."',
-					 '".$WAN_CLIENTE."',
-                     '".$WAN_OPERADORA."',
-					 '".$NO_DESIGNACAO."',
-					 '".$ID_ORGAO."',
-                     '".$ID_UNIDADE."',
-                     '".$ID_RESPONSAVEL."',
-                     '".$ID_CATEGORIA."',
-                     '".$ID_ITEM."',
-                     '".$DS_OBSERVACAO."',
-                     '".$STATUS."',
-                     '".$NU_USUARIOS."',
-                     '".$DT_HOMOLOGACAO."',
-                     '".$DT_INSTALACAO."',
-                     '".$DS_FAIXA."',
-					now());"; */
-					
-	/*$var = Array(array('resultado' => $sql));
-	echo json_encode($var);
-	exit;*/
-	//echo $sql;
-    //exit;
     	
 }
 ?>

@@ -39,7 +39,6 @@ $(function () {
                     WAN_OPERADORA: $("#wan_operadora").val(),
 				    NO_DESIGNACAO: $("#no_designacao").val(),
                     DS_OBSERVACAO: $("#ds_observacao").val(),
-				    ID_ORGAO: $("#no_orgao").val(),
                     ID_UNIDADE: $("#no_unidade").val(),
                     ID_RESPONSAVEL: $("#no_responsavel").val(),
                     ID_ITEM: $("#no_item").val(),
@@ -48,7 +47,6 @@ $(function () {
                     OLD_UNIDADE: $("#old_unidade_id").val(),
                     OLD_ORGAO: $("#old_orgao_id").val(),
                     OLD_RESPONSAVEL: $("#old_responsavel_id").val(),
-                    OLD_CATEGORIA: $("#old_categoriaitem_id").val(),
                     OLD_ITEMDECONFIGURACAO: $("#old_itemdeconfiguracao_id").val(),
                     OLD_IPLAN: $("#old_ip_lan").val(),
                     OLD_IPMASCARA: $("#old_ip_mascara").val(),
@@ -69,7 +67,8 @@ $(function () {
 				        return false;
                     }
 				    if (resultado == 0) {
-				        $().toastmessage("showSuccessToast", "Cadastro efetuado!");                    
+                        //alert("passou");
+				        $().toastmessage("showSuccessToast", "Movimentação efetuada!");                    
 				    }
 				}
             });

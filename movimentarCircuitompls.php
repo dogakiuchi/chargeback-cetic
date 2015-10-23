@@ -2,8 +2,8 @@
  require('headFormCadastro.php');
 ?>
 <!--Scripts exclusivos do formulário-->
-<script src="js/valida-movimentacao.js"></script>
 <script src="js/select-responsavel.js"></script>
+<script src="js/valida-movimentacao.js"></script>
 </head>
 <body>
     <?php 
@@ -110,7 +110,7 @@
 						</div>
                     </div>
 
-                </div><!--Span 7-->
+                </div><!--Span 5-->
                 <div class="span7">
                     <div id="div_iplan" class="control-group">
                         <label  class="control-label">IP LAN</label>
@@ -136,7 +136,7 @@
                         <input type="text" name="wan_operadora" id="wan_operadora" class="input-medium" maxlength="15" value="<?php echo $res[0][18]; ?>"/>
 						</div>
                     </div>
-                </div>
+                </div><!--Span 7-->
                 </div>
                 <div class="row-fluid">
                     <div class="span12">
