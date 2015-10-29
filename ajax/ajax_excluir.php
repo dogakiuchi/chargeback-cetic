@@ -4,6 +4,7 @@
 	$OBJ = $_GET['obj']; //identifica qual objeto a ser deletado
     $ID_ORGAO = $_GET['idorgao'];
     $ID_UNIDADE = $_GET['idunidade'];
+    $ID_CIRCUITO = $_GET['idcircuito'];
 	
 	/* Deleta Órgão */
     if ($OBJ==1){
@@ -40,10 +41,17 @@
 	header("Location: ../detalhaChargeback.php?idorgao=$ID_ORGAO");
 	}
 
-    /* Deleta Chargeback */
+    /* Deleta Circuito */
 	if ($OBJ==6){
 	$sql = "DELETE FROM circuitompls WHERE id = ".$ID;
 	f_escrita($db,$sql);
 	header("Location: ../listaCircuitompls.php");
+	}
+
+    /* Deleta Movimentacao */
+	if ($OBJ==7){
+	$sql = "DELETE FROM movimentacaocircuito WHERE id = ".$ID;
+	f_escrita($db,$sql);
+	header("Location: ../listaMovimentacao.php?id=$ID_CIRCUITO");
 	}
 ?>

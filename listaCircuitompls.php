@@ -40,7 +40,7 @@ require ("menuInterno.php");
                     <td><?php echo $circuito[2]; ?></td>
                     <td><?php echo $circuito[4]; ?></td>
                     <td><?php echo $circuito[5]; ?></td>
-                    <td class="minhaTd"><a href="movimentarCircuitompls.php?id=<?php echo $circuito[0]; ?>" class="iframe" data-toggle="tooltip" title="Movimentar Circuito"><i class="icon-retweet"></i></a></td>
+                    <td class="minhaTd"><a href="listaMovimentacao.php?id=<?php echo $circuito[0]; ?>" class=" data-toggle="tooltip" title="Movimentar Circuito"><i class="icon-retweet"></i></a></td>
                     <td class="minhaTd"><a href="editarCircuitompls.php?id=<?php echo $circuito[0]; ?>" class="iframe" data-toggle="tooltip" title="Editar Circuito"><i class="icon-edit"></i></a></td>
                     <td class="minhaTd"><a href="detalhaCircuitomplsTab1.php?id=<?php echo $circuito[0]; ?>" class="iframe" data-toggle="tooltip" title="Detalhar Circuito"><i class="icon-eye-open"></i></a></td>
                     <td class="minhaTd"><a href="ajax/ajax_excluir.php?id=<?php echo $circuito[0];?>&obj=6" data-toggle="tooltip" title="Excluir Circuito" onClick="if(confirm('Confirma a exclusão?') == true){this.href;return true;}else{return false;}"><i class="icon-remove"></i></a></td>

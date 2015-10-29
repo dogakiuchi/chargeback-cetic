@@ -49,7 +49,7 @@
                   <a class="dropdown-toggle" data-toggle="dropdown" href="#">Web <span class="caret"></span></a>
                   <ul class="dropdown-menu">
                     <li><a href="#">Sistemas</a></li>
-                    <li><a href="#">Sites</a></li>
+                    <li><a href="index.php">Sites</a></li>
                   </ul>
                 </li>
                 <li><a href="#">Banco de Dados</a></li>

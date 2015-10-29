@@ -1,28 +1,8 @@
-<!doctype html>
-<html lang="pt-br">
-<title>CeTIC</title>
-<meta charset="utf-8" />
-<!--[if lt IE 9]>
-<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js">
-</script>
-<![endif]-->
-<link rel="stylesheet" href="css/bootstrap.min.css">
-<link rel="stylesheet" href="css/chosen.css">
-<link rel="stylesheet" href="css/estilo.css">
-<link rel="stylesheet" href="plug-in/dataTable-1.10.0/media/css/jquery.dataTables.css">
-<link rel="stylesheet" href="plug-in/dataTable-1.10.0/media/css/dataTable.tableTools.css">
-<link rel="stylesheet" href="css/colorbox.css">
-<script src="plug-in/dataTable-1.10.0/media/js/jquery.js"></script>
-<script src="plug-in/dataTable-1.10.0/media/js/jquery.dataTables.js"></script>
-<script src="plug-in/dataTable-1.10.0/media/js/dataTables.tableTools.js"></script>
-<script src="js/jquery.colorbox-min.js"></script>
-<script src="js/colorbox.js"></script>
-<body>
 
 <?php
-    require ("banco/conecta.php");
-    $url     = (isset($_GET['DNS'])) ? $_GET['DNS'] : '';
-    if($url!=''){header("Location: http://$url");}
+require ("menuInterno.php");
+$url     = (isset($_GET['DNS'])) ? $_GET['DNS'] : '';
+if($url!=''){header("Location: http://$url");}
 ?>
 <div id="centro">
 
